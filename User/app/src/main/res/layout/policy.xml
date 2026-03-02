@@ -1,0 +1,70 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+	<LinearLayout
+		android:id="@+id/bg"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:padding="8dp"
+		android:background="#E0E0E0"
+		android:orientation="vertical">
+		<LinearLayout
+			android:id="@+id/linear2"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="#E0E0E0"
+			android:gravity="center_horizontal|center_vertical"
+			android:orientation="vertical">
+			<TextView
+				android:id="@+id/t1"
+				android:focusable="false"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:padding="8dp"
+				android:text="سياسة الخصوصية"
+				android:textSize="18sp"
+				android:textColor="#23286A" />
+			<LinearLayout
+				android:id="@+id/b1"
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:padding="8dp"
+				android:background="#E0E0E0"
+				android:orientation="vertical" />
+		</LinearLayout>
+		<ScrollView
+			android:id="@+id/vscroll1"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+			<LinearLayout
+				android:id="@+id/linear3"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:padding="8dp"
+				android:background="#E0E0E0"
+				android:gravity="center_horizontal|center_vertical"
+				android:orientation="vertical">
+				<ImageView
+					android:id="@+id/imageview1"
+					android:focusable="false"
+					android:layout_width="220dp"
+					android:layout_height="220dp"
+					android:src="@drawable/completed_hevo"
+					android:scaleType="fitCenter" />
+				<TextView
+					android:id="@+id/t2"
+					android:focusable="false"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:padding="8dp"
+					android:text="قام Bassam Samier ,Abdullah Hussein انشاء تطبيق MTX TV كتطبيق مجاني . تم إصدار هذا التطبيق بدون تكاليف وهو مخصص للاستخدام كما هو. \n\nتُستخدم هذه الصفحة لإعلام مستخدمي هذا التطبيق بسياساتنا وما هي المعلومات التي نجمعها إذا قرر أي شخص استخدام التطبيق الخاص بنا.\n\nجمع المعلومات واستخدامها\n\nللحصول على تجربة أفضل، أثناء استخدام خدماتنا، قد نطلب منك تزويدنا بمعلومات تعريف شخصية معينة .. سيتم الاحتفاظ بالمعلومات التي نطلبها منك على جهازك ونحن لا نقوم بتجميعها بأي طريقة.\n\nهذا التطبيق يستعمل خدمات جهات خارجية قد تجمع بعض معلوماتك المستخدمة لتحديد هويتك.\n\nأدناه روابط سياسة الخصوصية الخاصة بموفري الخدمات الجهات الخارجية المستعملة في هذا التطبيق\n\nAdMob\n\nGoogle Analytics for Firebase\n\nFirebase Crashlytics\n\nروابط لمواقع أخرى\n\nقد يحتوي هذا التطبيق على روابط لمواقع أخرى. إذا نقرت على رابط جهة خارجية، فسيتم توجيهك إلى هذا الموقع. لاحظ أن هذه المواقع الخارجية لا نديرها. لذلك، أنصحك بشدة مراجعة سياسة الخصوصية الخاصة بهذه المواقع. ليس لدينا أي سيطرة ولا نتحمل أي مسؤولية عن المحتوى أو سياسات الخصوصية أو الممارسات الخاصة بأي مواقع أو خدمات خاصة بجهة خارجية موجودة في هذا التطبيق.\n\nالتغييرات على سياسة الخصوصية هذه\n\nقد نقوم بتحديث سياسة الخصوصية الخاصة بنا في أي وقت. وبالتالي، ننصحك بمراجعة هذه الصفحة بشكل دوري للإطلاع على التغيرات الجديدة في سياستنا. سوف نعلمك بأي تغييرات عن طريق نشر سياسة الخصوصية الجديدة على هذه الصفحة. هذه التغييرات تكون فعالة فور نشرها على هذه الصفحة.\n\nالإتصال بنا\n\nإذا كان لديكم أي أسئلة أو اقتراحات حول سياسة الخصوصية الخاصة بنا، فلا تترددوا بالاتصال بنا.\nabdallah.hussein193193\@gmail.com"
+					android:textSize="14sp"
+					android:textColor="#23286A" />
+			</LinearLayout>
+		</ScrollView>
+	</LinearLayout>
+</LinearLayout>

@@ -1,0 +1,32 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+	<com.google.android.exoplayer2.ui.PlayerView
+		android:id="@+id/player_view"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="#000000"
+		android:gravity="bottom"
+		android:orientation="horizontal"
+		android:weightSum="4"
+		android:layout_weight="1"
+		app:controller_layout_id="@layout/controls"
+		app:fastforward_increment="10000"
+		app:hide_on_touch="true"
+		app:player_layout_id="@layout/exo_simple_player_view"
+		app:resize_mode="fit"
+		app:rewind_increment="10000"
+		app:show_timeout="5000"
+		app:use_controller="true">
+		<ListView
+			android:id="@+id/listview1"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:padding="8dp"
+			android:choiceMode="none" />
+	</com.google.android.exoplayer2.ui.PlayerView>
+</LinearLayout>
