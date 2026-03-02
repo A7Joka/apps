@@ -1,0 +1,53 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+	<LinearLayout
+		android:id="@+id/linear1"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:padding="8dp"
+		android:background="#FFFFFF"
+		android:gravity="center_horizontal|center_vertical"
+		android:orientation="vertical"
+		android:weightSum="7">
+		<ImageView
+			android:id="@+id/imageview1"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:src="@drawable/body_3"
+			android:scaleType="fitCenter"
+			android:layout_weight="4" />
+		<LinearLayout
+			android:id="@+id/linear2"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center_horizontal|center_vertical"
+			android:orientation="vertical"
+			android:weightSum="3"
+			android:layout_weight="3">
+			<TextView
+				android:id="@+id/textview1"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:padding="4dp"
+				android:gravity="center_horizontal|bottom"
+				android:text="متابعة الاخبار والبطولات"
+				android:textSize="18sp"
+				android:textColor="#000000" />
+			<TextView
+				android:id="@+id/textview2"
+				android:layout_width="280dp"
+				android:layout_height="wrap_content"
+				android:padding="4dp"
+				android:gravity="center_horizontal|top"
+				android:text="تابع الأخبار الرياضة في كرة القدم!  تابع ترتيب الفرق والهدّافين وصنّاع الأهداف في البطولات المحلية والعالمية."
+				android:textSize="12sp"
+				android:textColor="#000000"
+				android:alpha="0.6" />
+		</LinearLayout>
+	</LinearLayout>
+</LinearLayout>

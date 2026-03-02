@@ -1,0 +1,227 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/_coordinator"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	<com.google.android.material.appbar.AppBarLayout
+		android:id="@+id/_app_bar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:theme="@style/AppTheme.AppBarOverlay">
+		<androidx.appcompat.widget.Toolbar
+			android:id="@+id/_toolbar"
+			android:layout_width="match_parent"
+			android:layout_height="?attr/actionBarSize"
+			android:background="?attr/colorPrimary"
+			app:popupTheme="@style/AppTheme.PopupOverlay" />
+	</com.google.android.material.appbar.AppBarLayout>
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		app:layout_behavior="@string/appbar_scrolling_view_behavior">
+		<LinearLayout
+			android:id="@+id/content"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="#FFFFFF"
+			android:gravity="center_horizontal|center_vertical"
+			android:orientation="vertical"
+			android:layout_gravity="center_horizontal|center_vertical">
+			<LinearLayout
+				android:id="@+id/linear8"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical" />
+			<LinearLayout
+				android:id="@+id/linear19"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical" />
+			<com.google.android.material.textfield.TextInputLayout
+				android:id="@+id/title_lay"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="16dp"
+				android:layout_marginRight="16dp"
+				android:layout_marginBottom="16dp"
+				android:orientation="vertical"
+				style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+				<EditText
+					android:id="@+id/edittext1"
+					android:layout_width="match_parent"
+					android:layout_height="50dp"
+					android:paddingLeft="16dp"
+					android:paddingRight="8dp"
+					android:gravity="center_vertical"
+					android:textSize="16sp"
+					android:textColor="#000000"
+					android:hint="NAME"
+					android:textColorHint="#9E9E9E"
+					android:lines="1"
+					android:imeOptions="actionNext" />
+			</com.google.android.material.textfield.TextInputLayout>
+			<LinearLayout
+				android:id="@+id/linear24"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:padding="8dp"
+				android:orientation="horizontal" />
+			<com.google.android.material.textfield.TextInputLayout
+				android:id="@+id/textinputlayout1"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="16dp"
+				android:layout_marginRight="16dp"
+				android:layout_marginBottom="16dp"
+				android:orientation="vertical"
+				style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+				<EditText
+					android:id="@+id/edittext2"
+					android:layout_width="match_parent"
+					android:layout_height="50dp"
+					android:paddingLeft="16dp"
+					android:paddingTop="8dp"
+					android:paddingRight="8dp"
+					android:paddingBottom="8dp"
+					android:gravity="left|center_vertical"
+					android:textSize="16sp"
+					android:textColor="#000000"
+					android:hint="Url Link (M3U,M3U8,TS,MP4...)"
+					android:textColorHint="#9E9E9E"
+					android:lines="3"
+					android:imeOptions="actionGo" />
+			</com.google.android.material.textfield.TextInputLayout>
+			<LinearLayout
+				android:id="@+id/linear25"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:padding="8dp"
+				android:orientation="horizontal" />
+			<com.google.android.material.textfield.TextInputLayout
+				android:id="@+id/description_lay"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="16dp"
+				android:layout_marginRight="16dp"
+				android:layout_marginBottom="16dp"
+				android:orientation="vertical"
+				style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+				<EditText
+					android:id="@+id/edittext3"
+					android:layout_width="match_parent"
+					android:layout_height="50dp"
+					android:paddingLeft="16dp"
+					android:paddingRight="8dp"
+					android:gravity="center_vertical"
+					android:textSize="16sp"
+					android:textColor="#000000"
+					android:hint="user_agent"
+					android:textColorHint="#9E9E9E"
+					android:lines="1"
+					android:imeOptions="actionNext" />
+			</com.google.android.material.textfield.TextInputLayout>
+			<LinearLayout
+				android:id="@+id/linear30"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:padding="8dp"
+				android:orientation="horizontal" />
+			<com.google.android.material.textfield.TextInputLayout
+				android:id="@+id/textinputlayout2"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="16dp"
+				android:layout_marginRight="16dp"
+				android:layout_marginBottom="16dp"
+				android:orientation="vertical"
+				style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+				<EditText
+					android:id="@+id/edittext4"
+					android:layout_width="match_parent"
+					android:layout_height="50dp"
+					android:paddingLeft="16dp"
+					android:paddingRight="8dp"
+					android:gravity="center_vertical"
+					android:textSize="16sp"
+					android:textColor="#000000"
+					android:hint="Referer"
+					android:textColorHint="#9E9E9E"
+					android:lines="1"
+					android:imeOptions="actionNext" />
+			</com.google.android.material.textfield.TextInputLayout>
+			<LinearLayout
+				android:id="@+id/linear27"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_margin="12dp"
+				android:padding="3dp"
+				android:gravity="center_horizontal|center_vertical"
+				android:orientation="horizontal">
+				<CheckBox
+					android:id="@+id/checkbox2"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:padding="8dp"
+					android:text="Exo Player"
+					android:textSize="12sp"
+					android:textColor="#000000" />
+				<CheckBox
+					android:id="@+id/checkbox1"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:padding="8dp"
+					android:text="WEB PLAYER"
+					android:textSize="12sp"
+					android:textColor="#000000" />
+				<CheckBox
+					android:id="@+id/checkbox3"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:padding="8dp"
+					android:text="M3u8 Link"
+					android:textSize="12sp"
+					android:textColor="#000000" />
+			</LinearLayout>
+			<LinearLayout
+				android:id="@+id/linear16"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_margin="5dp"
+				android:padding="8dp"
+				android:background="#FFFFFF"
+				android:orientation="horizontal">
+				<Button
+					android:id="@+id/button1"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:padding="8dp"
+					android:background="#072242"
+					android:text="إلـغـاء"
+					android:textSize="12sp"
+					android:textColor="#FFFFFF"
+					android:layout_weight="1" />
+				<Button
+					android:id="@+id/button2"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="6dp"
+					android:layout_marginRight="6dp"
+					android:padding="8dp"
+					android:background="#072242"
+					android:text="إضـافـة "
+					android:textSize="12sp"
+					android:textColor="#FFFFFF"
+					android:layout_weight="1" />
+			</LinearLayout>
+			<LinearLayout
+				android:id="@+id/linear20"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:padding="8dp"
+				android:orientation="horizontal" />
+		</LinearLayout>
+	</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

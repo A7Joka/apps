@@ -1,0 +1,98 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/_coordinator"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+		<LinearLayout
+			android:id="@+id/bg"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="#FFFFFF"
+			android:gravity="center_horizontal|top"
+			android:orientation="vertical">
+			<LinearLayout
+				android:id="@+id/linear_vp"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="#FFFFFF"
+				android:orientation="vertical"
+				android:layout_weight="1">
+				<androidx.viewpager.widget.ViewPager
+					android:id="@+id/viewpager1"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:background="#FFFFFF" />
+			</LinearLayout>
+			<LinearLayout
+				android:id="@+id/linear"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="#FFFFFF"
+				android:gravity="center_horizontal|center_vertical"
+				android:orientation="vertical"
+				android:weightSum="3">
+				<LinearLayout
+					android:id="@+id/linear_page"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:padding="12dp"
+					android:background="@android:color/transparent"
+					android:gravity="center_horizontal|center_vertical"
+					android:orientation="horizontal"
+					android:alpha="0.7">
+					<ImageView
+						android:id="@+id/imageview1"
+						android:layout_width="22dp"
+						android:layout_height="22dp"
+						android:padding="4dp"
+						android:src="@drawable/circle_1"
+						android:scaleType="fitCenter" />
+					<ImageView
+						android:id="@+id/imageview2"
+						android:layout_width="22dp"
+						android:layout_height="22dp"
+						android:padding="4dp"
+						android:src="@drawable/circle_1"
+						android:scaleType="fitCenter" />
+					<ImageView
+						android:id="@+id/imageview3"
+						android:layout_width="22dp"
+						android:layout_height="22dp"
+						android:padding="4dp"
+						android:src="@drawable/circle_1"
+						android:scaleType="fitCenter" />
+					<ImageView
+						android:id="@+id/imageview4"
+						android:layout_width="22dp"
+						android:layout_height="22dp"
+						android:padding="4dp"
+						android:src="@drawable/circle_1"
+						android:scaleType="fitCenter" />
+					<ImageView
+						android:id="@+id/imageview5"
+						android:layout_width="22dp"
+						android:layout_height="22dp"
+						android:padding="4dp"
+						android:src="@drawable/circle_1"
+						android:scaleType="fitCenter" />
+				</LinearLayout>
+			</LinearLayout>
+		</LinearLayout>
+	</LinearLayout>
+	<com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+     android:text="Setting"
+     app:icon="@drawable/ic_setting"
+		android:id="@+id/_fab"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_margin="16dp"
+		android:layout_gravity="right|bottom"
+		app:srcCompat="@drawable/ic_setting"
+		android:translationY="-15.0dp" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

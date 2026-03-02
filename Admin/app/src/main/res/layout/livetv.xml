@@ -1,0 +1,201 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/_coordinator"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	<com.google.android.material.appbar.AppBarLayout
+		android:id="@+id/_app_bar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:theme="@style/AppTheme.AppBarOverlay">
+		<androidx.appcompat.widget.Toolbar
+			android:id="@+id/_toolbar"
+			android:layout_width="match_parent"
+			android:layout_height="?attr/actionBarSize"
+			android:background="?attr/colorPrimary"
+			app:popupTheme="@style/AppTheme.PopupOverlay" />
+	</com.google.android.material.appbar.AppBarLayout>
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		app:layout_behavior="@string/appbar_scrolling_view_behavior">
+		<LinearLayout
+			android:id="@+id/linear44"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="#757575"
+			android:orientation="vertical">
+			<ScrollView
+				android:id="@+id/vscroll1"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:background="#757575">
+				<LinearLayout
+					android:id="@+id/linear10"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:padding="10dp"
+					android:background="#757575"
+					android:gravity="center_horizontal|top"
+					android:orientation="vertical">
+					<ImageView
+						android:id="@+id/imageview1"
+						android:layout_width="120dp"
+						android:layout_height="120dp"
+						android:src="@drawable/soccerfield"
+						android:scaleType="fitCenter" />
+					<TextView
+						android:id="@+id/textview1"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:padding="10dp"
+						android:text="البطولات"
+						android:textSize="20sp"
+						android:textStyle="bold"
+						android:textColor="#E0E0E0" />
+					<LinearLayout
+						android:id="@+id/linear21"
+						android:layout_width="match_parent"
+						android:layout_height="30dp"
+						android:padding="8dp"
+						android:orientation="horizontal" />
+					<LinearLayout
+						android:id="@+id/linear17"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="8dp"
+						android:orientation="horizontal">
+						<EditText
+							android:id="@+id/edittext1"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:padding="8dp"
+							android:textSize="12sp"
+							android:textColor="#000000"
+							android:hint="الاسم"
+							android:textColorHint="#F5F5F5" />
+					</LinearLayout>
+					<LinearLayout
+						android:id="@+id/linear12"
+						android:layout_width="match_parent"
+						android:layout_height="15dp"
+						android:padding="8dp"
+						android:orientation="horizontal" />
+					<LinearLayout
+						android:id="@+id/linear38"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="8dp"
+						android:orientation="horizontal">
+						<EditText
+							android:id="@+id/edittext2"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:padding="8dp"
+							android:textSize="12sp"
+							android:textColor="#000000"
+							android:hint="الصورة"
+							android:textColorHint="#F5F5F5" />
+					</LinearLayout>
+					<LinearLayout
+						android:id="@+id/linear16"
+						android:layout_width="match_parent"
+						android:layout_height="15dp"
+						android:padding="8dp"
+						android:orientation="horizontal" />
+					<LinearLayout
+						android:id="@+id/linear43"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="8dp"
+						android:orientation="horizontal">
+						<EditText
+							android:id="@+id/edittext3"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:padding="8dp"
+							android:textSize="12sp"
+							android:textColor="#000000"
+							android:hint="ترتيب الفرق"
+							android:textColorHint="#F5F5F5" />
+					</LinearLayout>
+					<LinearLayout
+						android:id="@+id/linear29"
+						android:layout_width="match_parent"
+						android:layout_height="15dp"
+						android:padding="8dp"
+						android:orientation="horizontal" />
+					<LinearLayout
+						android:id="@+id/linear61"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="8dp"
+						android:orientation="horizontal">
+						<EditText
+							android:id="@+id/edittext4"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:padding="8dp"
+							android:textSize="12sp"
+							android:textColor="#000000"
+							android:hint="ترتيب الهدافين"
+							android:textColorHint="#F5F5F5" />
+					</LinearLayout>
+					<LinearLayout
+						android:id="@+id/linear59"
+						android:layout_width="match_parent"
+						android:layout_height="15dp"
+						android:padding="8dp"
+						android:orientation="horizontal" />
+					<LinearLayout
+						android:id="@+id/linear24"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="8dp"
+						android:orientation="horizontal">
+						<EditText
+							android:id="@+id/edittext5"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:padding="8dp"
+							android:textSize="12sp"
+							android:textColor="#000000"
+							android:hint="ترتيب الصناعة"
+							android:textColorHint="#F5F5F5" />
+					</LinearLayout>
+					<LinearLayout
+						android:id="@+id/linear28"
+						android:layout_width="match_parent"
+						android:layout_height="15dp"
+						android:padding="8dp"
+						android:orientation="horizontal" />
+					<LinearLayout
+						android:id="@+id/linear25"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="8dp"
+						android:orientation="horizontal" />
+					<Button
+						android:id="@+id/button1"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="8dp"
+						android:background="#424242"
+						android:text="رفع البطولة"
+						android:textSize="18sp"
+						android:textStyle="bold"
+						android:textColor="#EEEEEE" />
+					<LinearLayout
+						android:id="@+id/linear23"
+						android:layout_width="match_parent"
+						android:layout_height="10dp"
+						android:padding="8dp"
+						android:orientation="horizontal" />
+				</LinearLayout>
+			</ScrollView>
+		</LinearLayout>
+	</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

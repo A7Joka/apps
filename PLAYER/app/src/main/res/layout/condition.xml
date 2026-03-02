@@ -1,0 +1,65 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+	<LinearLayout
+		android:id="@+id/linear1"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:paddingLeft="8dp"
+		android:paddingRight="8dp"
+		android:orientation="vertical">
+		<LinearLayout
+			android:id="@+id/linear_status_bar"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="8dp"
+			android:orientation="horizontal" />
+		<TextView
+			android:id="@+id/textview1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:padding="8dp"
+			android:gravity="center_horizontal|center_vertical"
+			android:text="Terms and Conditions"
+			android:textSize="20sp"
+			android:textStyle="bold"
+			android:textColor="#FFFFFF"
+			android:layout_gravity="center_horizontal|center_vertical" />
+		<LinearLayout
+			android:id="@+id/linear3"
+			android:layout_width="match_parent"
+			android:layout_height="1dp"
+			android:padding="8dp"
+			android:background="#FFFFFF"
+			android:orientation="horizontal"
+			android:alpha="0.15" />
+		<ScrollView
+			android:id="@+id/vscroll1"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:scrollbars="none"
+			android:overScrollMode="never">
+			<LinearLayout
+				android:id="@+id/linear2"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:padding="8dp"
+				android:gravity="center_horizontal|center_vertical"
+				android:orientation="vertical">
+				<TextView
+					android:id="@+id/textview2"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:padding="8dp"
+					android:text="About User Data Policy Limit the access to, collection, use and sharing of personal and sensitive user data obtained through the Application to the Application, the Service and the purposes of the Policy compliance that the user would reasonably expect. \n\nPersistent device identifiers may not be associated with other personal and sensitive user data or resettable device identifiers except for the following purposes:\n\n telephony associated with a SIM identity (for example, wifi calling associated with a carrier account), enterprise device management applications using device owner mode. \n\nThese uses must be prominently disclosed to users as specified in the User Data Policy. Please refer to this resource for alternative unique identifiers"
+					android:textSize="18sp"
+					android:textStyle="italic"
+					android:textColor="#FFFFFF" />
+			</LinearLayout>
+		</ScrollView>
+	</LinearLayout>
+</LinearLayout>

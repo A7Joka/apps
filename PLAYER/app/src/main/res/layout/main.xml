@@ -1,0 +1,78 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+	<LinearLayout
+		android:id="@+id/linear1"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="#000000"
+		android:orientation="vertical">
+		<com.google.android.exoplayer2.ui.PlayerView
+			android:id="@+id/player_view"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:gravity="center_horizontal"
+			android:orientation="horizontal"
+			android:layout_weight="1"
+			app:resize_mode="fill"
+			app:hide_on_touch="true"
+			app:show_timeout="5000"
+			app:rewind_increment="10000"
+			app:fastforward_increment="10000"
+			app:use_controller="true"
+			android:background="@android:color/background_dark"
+			app:player_layout_id="@layout/exo_simple_player_view"
+			app:controller_layout_id="@layout/controls">
+			<ImageView
+				android:id="@+id/imageview1"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:src="@drawable/exo_ic_fullscreen_enter"
+				android:scaleType="fitCenter" />
+			<ImageView
+				android:id="@+id/settingss"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_margin="15dp"
+				android:src="@drawable/settings"
+				android:scaleType="fitCenter"
+				android:layout_gravity="bottom" />
+			<ImageView
+				android:id="@+id/btFullScreen"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:src="@drawable/exo_ic_fullscreen_enter"
+				android:scaleType="fitCenter" />
+			<ProgressBar
+				android:id="@+id/progressBar"
+				android:layout_width="60dp"
+				android:layout_height="60dp"
+				android:translationY="7.0dp"
+				android:indeterminate="false"
+				style="?android:progressBarStyle"
+				android:layout_gravity="center_horizontal|center_vertical"
+				android:layout_centerInParent="true" />
+			<ImageView
+				android:id="@+id/cast"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="20dp"
+				android:layout_marginTop="15dp"
+				android:layout_marginRight="5dp"
+				android:padding="3dp"
+				android:src="@drawable/ic_cast_connected_wh"
+				android:scaleType="centerCrop"
+				android:layout_gravity="top" />
+			<ImageView
+				android:id="@+id/pip"
+				android:layout_width="25dp"
+				android:layout_height="25dp"
+				android:src="@drawable/pip"
+				android:scaleType="fitCenter" />
+		</com.google.android.exoplayer2.ui.PlayerView>
+	</LinearLayout>
+</LinearLayout>

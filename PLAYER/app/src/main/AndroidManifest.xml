@@ -1,0 +1,117 @@
+
+<manifest
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	package="com.HAKEEMO.PLAYER">
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<application
+		android:allowBackup="true"
+		android:icon="@drawable/app_icon"
+		android:label="@string/app_name"
+		android:usesCleartextTraffic="true"
+		android:theme="@style/AppTheme">
+		<activity
+			android:name=".MainActivity"
+			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
+			android:hardwareAccelerated="true"
+			android:supportsPictureInPicture="true"
+			android:theme="@style/AppTheme.FullScreen"
+			android:screenOrientation="landscape" />
+		<activity
+			android:name=".StartActivity"
+			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
+			android:hardwareAccelerated="true"
+			android:supportsPictureInPicture="true"
+			android:screenOrientation="portrait"
+			android:windowSoftInputMode="stateHidden"
+			android:exported="true">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<activity
+			android:name=".ChannelActivity"
+			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
+			android:hardwareAccelerated="true"
+			android:supportsPictureInPicture="true"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".CategoryActivity"
+			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
+			android:hardwareAccelerated="true"
+			android:supportsPictureInPicture="true"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".PlayerActivity"
+			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
+			android:hardwareAccelerated="true"
+			android:supportsPictureInPicture="true"
+			android:theme="@style/AppTheme.FullScreen"
+			android:screenOrientation="landscape"
+			android:windowSoftInputMode="stateHidden" />
+		<activity
+			android:name=".HomeActivity"
+			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
+			android:hardwareAccelerated="true"
+			android:supportsPictureInPicture="true"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".EditActivity"
+			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
+			android:hardwareAccelerated="true"
+			android:supportsPictureInPicture="true"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".InformationActivity"
+			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
+			android:hardwareAccelerated="true"
+			android:supportsPictureInPicture="true"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".PrivacpolicyActivity"
+			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
+			android:hardwareAccelerated="true"
+			android:supportsPictureInPicture="true"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".ConditionActivity"
+			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
+			android:hardwareAccelerated="true"
+			android:supportsPictureInPicture="true"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".AccepttermsActivity"
+			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
+			android:hardwareAccelerated="true"
+			android:supportsPictureInPicture="true"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".DebugActivity"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name="com.google.android.gms.ads.AdActivity"
+			android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+			android:theme="@android:style/Theme.Translucent" />
+		<meta-data
+			android:name="com.google.android.gms.version"
+			android:value="@integer/google_play_services_version" />
+		<provider
+			android:name="com.google.firebase.provider.FirebaseInitProvider"
+			android:authorities="com.HAKEEMO.PLAYER.firebaseinitprovider"
+			android:exported="false"
+			android:initOrder="100" />
+		<service
+			android:name="com.google.firebase.components.ComponentDiscoveryService"
+			android:exported="false">
+			<meta-data
+				android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+				android:value="com.google.firebase.components.ComponentRegistrar" />
+		</service>
+		<uses-library
+			android:name="org.apache.http.legacy"
+			android:required="false" />
+	</application>
+</manifest>
