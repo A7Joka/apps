@@ -1,533 +1,673 @@
-<LinearLayout
+<androidx.drawerlayout.widget.DrawerLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/_drawer"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:orientation="vertical">
-	<LinearLayout
-		android:id="@+id/linear18"
+	tools:openDrawer="start">
+	<androidx.coordinatorlayout.widget.CoordinatorLayout
+		android:id="@+id/_coordinator"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:background="#E0E0E0"
-		android:gravity="center_horizontal|center_vertical"
-		android:orientation="horizontal">
-		<ScrollView
-			android:id="@+id/vscroll1"
+		android:layout_height="match_parent">
+		<com.google.android.material.appbar.AppBarLayout
+			android:id="@+id/_app_bar"
 			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:layout_gravity="center_horizontal|center_vertical">
-			<LinearLayout
-				android:id="@+id/linear19"
+			android:layout_height="wrap_content"
+			android:theme="@style/AppTheme.AppBarOverlay">
+			<androidx.appcompat.widget.Toolbar
+				android:id="@+id/_toolbar"
 				android:layout_width="match_parent"
-				android:layout_height="match_parent"
-				android:padding="10dp"
-				android:gravity="center_horizontal|center_vertical"
-				android:orientation="vertical">
-				<LinearLayout
-					android:id="@+id/linear27"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_margin="10dp"
-					android:padding="15dp"
-					android:background="#F48FB1"
-					android:gravity="center_horizontal|center_vertical"
-					android:orientation="vertical">
-					<ImageView
-						android:id="@+id/imageview9"
-						android:layout_width="90dp"
-						android:layout_height="90dp"
-						android:src="@drawable/loupe_2"
-						android:scaleType="fitCenter" />
-					<TextView
-						android:id="@+id/text1"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:padding="8dp"
-						android:gravity="center_horizontal|center_vertical"
-						android:text="افلام"
-						android:textSize="16sp"
-						android:textColor="#000000" />
-				</LinearLayout>
-				<LinearLayout
-					android:id="@+id/linear28"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_margin="10dp"
-					android:padding="15dp"
-					android:background="#CE93D8"
-					android:gravity="center_horizontal|center_vertical"
-					android:orientation="vertical">
-					<ImageView
-						android:id="@+id/imageview10"
-						android:layout_width="90dp"
-						android:layout_height="90dp"
-						android:src="@drawable/loupe_3"
-						android:scaleType="fitCenter" />
-					<TextView
-						android:id="@+id/text2"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:padding="8dp"
-						android:gravity="center_horizontal|center_vertical"
-						android:text="مسلسلات"
-						android:textSize="16sp"
-						android:textColor="#000000" />
-				</LinearLayout>
-				<LinearLayout
-					android:id="@+id/linear29"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_margin="10dp"
-					android:padding="15dp"
-					android:background="#B39DDB"
-					android:gravity="center_horizontal|center_vertical"
-					android:orientation="vertical">
-					<ImageView
-						android:id="@+id/imageview11"
-						android:layout_width="90dp"
-						android:layout_height="90dp"
-						android:src="@drawable/talk_show_1"
-						android:scaleType="fitCenter" />
-					<TextView
-						android:id="@+id/text3"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:padding="8dp"
-						android:gravity="center_horizontal|center_vertical"
-						android:text="برامج"
-						android:textSize="16sp"
-						android:textColor="#000000" />
-				</LinearLayout>
-				<LinearLayout
-					android:id="@+id/linear30"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_margin="10dp"
-					android:padding="15dp"
-					android:background="#9FA8DA"
-					android:gravity="center_horizontal|center_vertical"
-					android:orientation="vertical">
-					<ImageView
-						android:id="@+id/imageview12"
-						android:layout_width="90dp"
-						android:layout_height="90dp"
-						android:src="@drawable/talk_show_2"
-						android:scaleType="fitCenter" />
-					<TextView
-						android:id="@+id/text4"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:padding="8dp"
-						android:gravity="center_horizontal|center_vertical"
-						android:text="مصارعة"
-						android:textSize="16sp"
-						android:textColor="#000000" />
-				</LinearLayout>
-			</LinearLayout>
-		</ScrollView>
-		<ScrollView
-			android:id="@+id/vscroll2"
-			android:layout_width="match_parent"
-			android:layout_height="match_parent">
-			<LinearLayout
-				android:id="@+id/linear31"
-				android:layout_width="match_parent"
-				android:layout_height="match_parent"
-				android:padding="10dp"
-				android:gravity="center_horizontal|center_vertical"
-				android:orientation="vertical">
-				<LinearLayout
-					android:id="@+id/linear42"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_margin="10dp"
-					android:padding="5dp"
-					android:background="#F48FB1"
-					android:gravity="center_horizontal|center_vertical"
-					android:orientation="vertical">
-					<ImageView
-						android:id="@+id/imageview20"
-						android:layout_width="90dp"
-						android:layout_height="90dp"
-						android:src="@drawable/loupe_2"
-						android:scaleType="fitCenter" />
-					<TextView
-						android:id="@+id/text_1"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:padding="8dp"
-						android:gravity="center_horizontal|center_vertical"
-						android:text="افلام عربي"
-						android:textSize="16sp"
-						android:textColor="#000000" />
-				</LinearLayout>
-				<LinearLayout
-					android:id="@+id/linear43"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_margin="10dp"
-					android:padding="5dp"
-					android:background="#F48FB1"
-					android:gravity="center_horizontal|center_vertical"
-					android:orientation="vertical">
-					<ImageView
-						android:id="@+id/imageview21"
-						android:layout_width="90dp"
-						android:layout_height="90dp"
-						android:src="@drawable/loupe_2"
-						android:scaleType="fitCenter" />
-					<TextView
-						android:id="@+id/text_2"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:padding="8dp"
-						android:gravity="center_horizontal|center_vertical"
-						android:text="افلام اجنبي"
-						android:textSize="16sp"
-						android:textColor="#000000" />
-				</LinearLayout>
-				<LinearLayout
-					android:id="@+id/linear44"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_margin="10dp"
-					android:padding="5dp"
-					android:background="#F48FB1"
-					android:gravity="center_horizontal|center_vertical"
-					android:orientation="vertical">
-					<ImageView
-						android:id="@+id/imageview22"
-						android:layout_width="90dp"
-						android:layout_height="90dp"
-						android:src="@drawable/loupe_2"
-						android:scaleType="fitCenter" />
-					<TextView
-						android:id="@+id/text_3"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:padding="8dp"
-						android:gravity="center_horizontal|center_vertical"
-						android:text="افلام هندي"
-						android:textSize="16sp"
-						android:textColor="#000000" />
-				</LinearLayout>
-				<LinearLayout
-					android:id="@+id/linear45"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_margin="10dp"
-					android:padding="5dp"
-					android:background="#F48FB1"
-					android:gravity="center_horizontal|center_vertical"
-					android:orientation="vertical">
-					<ImageView
-						android:id="@+id/imageview23"
-						android:layout_width="90dp"
-						android:layout_height="90dp"
-						android:src="@drawable/loupe_2"
-						android:scaleType="fitCenter" />
-					<TextView
-						android:id="@+id/text_4"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:padding="8dp"
-						android:gravity="center_horizontal|center_vertical"
-						android:text="افلام تركي"
-						android:textSize="16sp"
-						android:textColor="#000000" />
-				</LinearLayout>
-				<LinearLayout
-					android:id="@+id/linear46"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_margin="10dp"
-					android:padding="5dp"
-					android:background="#F48FB1"
-					android:gravity="center_horizontal|center_vertical"
-					android:orientation="vertical">
-					<ImageView
-						android:id="@+id/imageview24"
-						android:layout_width="90dp"
-						android:layout_height="90dp"
-						android:src="@drawable/loupe_2"
-						android:scaleType="fitCenter" />
-					<TextView
-						android:id="@+id/text_5"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:padding="8dp"
-						android:gravity="center_horizontal|center_vertical"
-						android:text="افلام وثائقية"
-						android:textSize="16sp"
-						android:textColor="#000000" />
-				</LinearLayout>
-				<LinearLayout
-					android:id="@+id/linear47"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_margin="10dp"
-					android:padding="5dp"
-					android:background="#F48FB1"
-					android:gravity="center_horizontal|center_vertical"
-					android:orientation="vertical">
-					<ImageView
-						android:id="@+id/imageview25"
-						android:layout_width="90dp"
-						android:layout_height="90dp"
-						android:src="@drawable/loupe_2"
-						android:scaleType="fitCenter" />
-					<TextView
-						android:id="@+id/text_6"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:padding="8dp"
-						android:gravity="center_horizontal|center_vertical"
-						android:text="افلام انمي"
-						android:textSize="16sp"
-						android:textColor="#000000" />
-				</LinearLayout>
-			</LinearLayout>
-		</ScrollView>
-		<ScrollView
-			android:id="@+id/vscroll3"
-			android:layout_width="match_parent"
-			android:layout_height="match_parent">
-			<LinearLayout
-				android:id="@+id/linear62"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:padding="10dp"
-				android:gravity="center_horizontal|center_vertical"
-				android:orientation="vertical">
-				<LinearLayout
-					android:id="@+id/linear51"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_margin="10dp"
-					android:padding="5dp"
-					android:background="#CE93D8"
-					android:gravity="center_horizontal|center_vertical"
-					android:orientation="vertical">
-					<ImageView
-						android:id="@+id/imageview27"
-						android:layout_width="90dp"
-						android:layout_height="90dp"
-						android:src="@drawable/loupe_3"
-						android:scaleType="fitCenter" />
-					<TextView
-						android:id="@+id/text_01"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:padding="8dp"
-						android:gravity="center_horizontal|center_vertical"
-						android:text="مسلسلات عربي"
-						android:textSize="16sp"
-						android:textColor="#000000" />
-				</LinearLayout>
-				<LinearLayout
-					android:id="@+id/linear52"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_margin="10dp"
-					android:padding="5dp"
-					android:background="#CE93D8"
-					android:gravity="center_horizontal|center_vertical"
-					android:orientation="vertical">
-					<ImageView
-						android:id="@+id/imageview28"
-						android:layout_width="90dp"
-						android:layout_height="90dp"
-						android:src="@drawable/loupe_3"
-						android:scaleType="fitCenter" />
-					<TextView
-						android:id="@+id/text_02"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:padding="8dp"
-						android:gravity="center_horizontal|center_vertical"
-						android:text="مسلسلات اجنبي"
-						android:textSize="16sp"
-						android:textColor="#000000" />
-				</LinearLayout>
-				<LinearLayout
-					android:id="@+id/linear53"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_margin="10dp"
-					android:padding="5dp"
-					android:background="#CE93D8"
-					android:gravity="center_horizontal|center_vertical"
-					android:orientation="vertical">
-					<ImageView
-						android:id="@+id/imageview29"
-						android:layout_width="90dp"
-						android:layout_height="90dp"
-						android:src="@drawable/loupe_3"
-						android:scaleType="fitCenter" />
-					<TextView
-						android:id="@+id/text_03"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:padding="8dp"
-						android:gravity="center_horizontal|center_vertical"
-						android:text="مسلسلات هندي"
-						android:textSize="16sp"
-						android:textColor="#000000" />
-				</LinearLayout>
-				<LinearLayout
-					android:id="@+id/linear54"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_margin="10dp"
-					android:padding="5dp"
-					android:background="#CE93D8"
-					android:gravity="center_horizontal|center_vertical"
-					android:orientation="vertical">
-					<ImageView
-						android:id="@+id/imageview30"
-						android:layout_width="90dp"
-						android:layout_height="90dp"
-						android:src="@drawable/loupe_3"
-						android:scaleType="fitCenter" />
-					<TextView
-						android:id="@+id/text_04"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:padding="8dp"
-						android:gravity="center_horizontal|center_vertical"
-						android:text="مسلسلات تركي"
-						android:textSize="16sp"
-						android:textColor="#000000" />
-				</LinearLayout>
-				<LinearLayout
-					android:id="@+id/linear55"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_margin="10dp"
-					android:padding="5dp"
-					android:background="#CE93D8"
-					android:gravity="center_horizontal|center_vertical"
-					android:orientation="vertical">
-					<ImageView
-						android:id="@+id/imageview31"
-						android:layout_width="90dp"
-						android:layout_height="90dp"
-						android:src="@drawable/loupe_3"
-						android:scaleType="fitCenter" />
-					<TextView
-						android:id="@+id/text_05"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:padding="8dp"
-						android:gravity="center_horizontal|center_vertical"
-						android:text="مسلسلات وثائقية"
-						android:textSize="16sp"
-						android:textColor="#000000" />
-				</LinearLayout>
-				<LinearLayout
-					android:id="@+id/linear56"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_margin="10dp"
-					android:padding="5dp"
-					android:background="#CE93D8"
-					android:gravity="center_horizontal|center_vertical"
-					android:orientation="vertical">
-					<ImageView
-						android:id="@+id/imageview32"
-						android:layout_width="90dp"
-						android:layout_height="90dp"
-						android:src="@drawable/loupe_3"
-						android:scaleType="fitCenter" />
-					<TextView
-						android:id="@+id/text_06"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:padding="8dp"
-						android:gravity="center_horizontal|center_vertical"
-						android:text="مسلسلات انمي"
-						android:textSize="16sp"
-						android:textColor="#000000" />
-				</LinearLayout>
-			</LinearLayout>
-		</ScrollView>
+				android:layout_height="?attr/actionBarSize"
+				android:background="?attr/colorPrimary"
+				app:popupTheme="@style/AppTheme.PopupOverlay" />
+		</com.google.android.material.appbar.AppBarLayout>
 		<LinearLayout
-			android:id="@+id/gred"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:padding="8dp"
-			android:gravity="center_horizontal"
-			android:orientation="vertical">
-			<GridView
-				android:id="@+id/gridview1"
-				android:layout_width="match_parent"
-				android:layout_height="match_parent"
-				android:padding="8dp"
-				android:layout_weight="1"
-				android:numColumns="3"
-				android:stretchMode="columnWidth" />
+			android:orientation="vertical"
+			app:layout_behavior="@string/appbar_scrolling_view_behavior">
 			<LinearLayout
-				android:id="@+id/linear69"
+				android:id="@+id/linear2"
 				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:padding="8dp"
+				android:layout_height="60dp"
+				android:background="#78022C"
 				android:gravity="center_horizontal|center_vertical"
 				android:orientation="horizontal">
-				<Button
-					android:id="@+id/button1"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_margin="8dp"
-					android:background="#80CBC4"
-					android:text="السابق"
-					android:textSize="12sp"
-					android:textColor="#000000"
+				<ImageView
+					android:id="@+id/imageview4"
+					android:layout_width="40dp"
+					android:layout_height="40dp"
+					android:layout_marginLeft="10dp"
+					android:layout_marginRight="10dp"
+					android:src="@drawable/ic_menu_white"
+					android:scaleType="fitCenter" />
+				<ImageView
+					android:id="@+id/imageview5"
+					android:layout_width="280dp"
+					android:layout_height="40dp"
+					android:src="@drawable/tvvv"
+					android:scaleType="centerInside"
 					android:layout_weight="1" />
+				<ImageView
+					android:id="@+id/imageview6"
+					android:layout_width="40dp"
+					android:layout_height="40dp"
+					android:layout_marginLeft="10dp"
+					android:layout_marginRight="10dp"
+					android:padding="8dp"
+					android:src="@drawable/logout"
+					android:scaleType="centerInside" />
+			</LinearLayout>
+			<LinearLayout
+				android:id="@+id/taplayout"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="#78022C"
+				android:orientation="horizontal">
 				<TextView
-					android:id="@+id/textview1"
-					android:layout_width="wrap_content"
+					android:id="@+id/textview2"
+					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:padding="8dp"
-					android:text="0"
-					android:textSize="12sp"
-					android:textColor="#000000" />
-				<Button
-					android:id="@+id/button2"
+					android:gravity="center_horizontal|center_vertical"
+					android:text="قنوات"
+					android:textSize="20sp"
+					android:textStyle="bold"
+					android:textColor="#FFFFFF"
+					android:layout_weight="1" />
+				<TextView
+					android:id="@+id/textview3"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:layout_margin="8dp"
-					android:background="#80DEEA"
-					android:text="التالي"
-					android:textSize="12sp"
-					android:textColor="#000000"
+					android:padding="8dp"
+					android:gravity="center_horizontal|center_vertical"
+					android:text="ترفيه"
+					android:textSize="20sp"
+					android:textStyle="bold"
+					android:textColor="#FFFFFF"
+					android:layout_weight="1" />
+				<TextView
+					android:id="@+id/textview4"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:padding="8dp"
+					android:gravity="center_horizontal|center_vertical"
+					android:text="مباريات"
+					android:textSize="20sp"
+					android:textStyle="bold"
+					android:textColor="#FFFFFF"
 					android:layout_weight="1" />
 			</LinearLayout>
 			<LinearLayout
-				android:id="@+id/linear9"
+				android:id="@+id/linear14"
 				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:padding="8dp"
+				android:layout_height="11dp"
+				android:paddingBottom="3dp"
+				android:background="#78022C"
+				android:orientation="horizontal">
+				<LinearLayout
+					android:id="@+id/linear15"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:layout_marginLeft="10dp"
+					android:layout_marginRight="10dp"
+					android:padding="8dp"
+					android:orientation="vertical"
+					android:layout_weight="1" />
+				<LinearLayout
+					android:id="@+id/linear16"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:layout_marginLeft="10dp"
+					android:layout_marginRight="10dp"
+					android:padding="8dp"
+					android:background="#FFFFFF"
+					android:orientation="vertical"
+					android:layout_weight="1" />
+				<LinearLayout
+					android:id="@+id/linear17"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:layout_marginLeft="10dp"
+					android:layout_marginRight="10dp"
+					android:padding="8dp"
+					android:orientation="vertical"
+					android:layout_weight="1" />
+			</LinearLayout>
+			<LinearLayout
+				android:id="@+id/linear18"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:background="#E0E0E0"
 				android:gravity="center_horizontal|center_vertical"
-				android:orientation="vertical"
-				android:layout_weight="1">
-				<ImageView
-					android:id="@+id/imageview2"
-					android:layout_width="120dp"
-					android:layout_height="120dp"
-					android:src="@drawable/schedule"
-					android:scaleType="fitCenter" />
-				<TextView
-					android:id="@+id/textview9"
-					android:layout_width="300dp"
-					android:layout_height="wrap_content"
-					android:padding="4dp"
-					android:gravity="center_horizontal|center_vertical"
-					android:text="عفوا لقد حدث خطا اضغط لاعادة المحاولة"
-					android:textSize="20sp"
-					android:textStyle="bold"
-					android:textColor="#000000" />
+				android:orientation="horizontal">
+				<ScrollView
+					android:id="@+id/vscroll1"
+					android:layout_width="20dp"
+					android:layout_height="match_parent"
+					android:layout_gravity="center_horizontal|center_vertical">
+					<LinearLayout
+						android:id="@+id/linear19"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:padding="10dp"
+						android:gravity="center_horizontal|center_vertical"
+						android:orientation="vertical">
+						<LinearLayout
+							android:id="@+id/linear27"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_margin="10dp"
+							android:padding="15dp"
+							android:background="#F48FB1"
+							android:gravity="center_horizontal|center_vertical"
+							android:orientation="vertical">
+							<ImageView
+								android:id="@+id/imageview9"
+								android:layout_width="90dp"
+								android:layout_height="90dp"
+								android:src="@drawable/loupe_2"
+								android:scaleType="fitCenter" />
+							<TextView
+								android:id="@+id/text1"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:padding="8dp"
+								android:gravity="center_horizontal|center_vertical"
+								android:text="افلام"
+								android:textSize="16sp"
+								android:textColor="#000000" />
+						</LinearLayout>
+						<LinearLayout
+							android:id="@+id/linear28"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_margin="10dp"
+							android:padding="15dp"
+							android:background="#CE93D8"
+							android:gravity="center_horizontal|center_vertical"
+							android:orientation="vertical">
+							<ImageView
+								android:id="@+id/imageview10"
+								android:layout_width="90dp"
+								android:layout_height="90dp"
+								android:src="@drawable/loupe_3"
+								android:scaleType="fitCenter" />
+							<TextView
+								android:id="@+id/text2"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:padding="8dp"
+								android:gravity="center_horizontal|center_vertical"
+								android:text="مسلسلات"
+								android:textSize="16sp"
+								android:textColor="#000000" />
+						</LinearLayout>
+						<LinearLayout
+							android:id="@+id/linear29"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_margin="10dp"
+							android:padding="15dp"
+							android:background="#B39DDB"
+							android:gravity="center_horizontal|center_vertical"
+							android:orientation="vertical">
+							<ImageView
+								android:id="@+id/imageview11"
+								android:layout_width="90dp"
+								android:layout_height="90dp"
+								android:src="@drawable/talk_show_1"
+								android:scaleType="fitCenter" />
+							<TextView
+								android:id="@+id/text3"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:padding="8dp"
+								android:gravity="center_horizontal|center_vertical"
+								android:text="برامج"
+								android:textSize="16sp"
+								android:textColor="#000000" />
+						</LinearLayout>
+						<LinearLayout
+							android:id="@+id/linear30"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_margin="10dp"
+							android:padding="15dp"
+							android:background="#9FA8DA"
+							android:gravity="center_horizontal|center_vertical"
+							android:orientation="vertical">
+							<ImageView
+								android:id="@+id/imageview12"
+								android:layout_width="90dp"
+								android:layout_height="90dp"
+								android:src="@drawable/talk_show_2"
+								android:scaleType="fitCenter" />
+							<TextView
+								android:id="@+id/text4"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:padding="8dp"
+								android:gravity="center_horizontal|center_vertical"
+								android:text="مصارعة"
+								android:textSize="16sp"
+								android:textColor="#000000" />
+						</LinearLayout>
+					</LinearLayout>
+				</ScrollView>
+				<ScrollView
+					android:id="@+id/vscroll2"
+					android:layout_width="20dp"
+					android:layout_height="match_parent">
+					<LinearLayout
+						android:id="@+id/linear31"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:padding="10dp"
+						android:gravity="center_horizontal|center_vertical"
+						android:orientation="vertical">
+						<LinearLayout
+							android:id="@+id/linear42"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_margin="10dp"
+							android:padding="5dp"
+							android:background="#F48FB1"
+							android:gravity="center_horizontal|center_vertical"
+							android:orientation="vertical">
+							<ImageView
+								android:id="@+id/imageview20"
+								android:layout_width="90dp"
+								android:layout_height="90dp"
+								android:src="@drawable/loupe_2"
+								android:scaleType="fitCenter" />
+							<TextView
+								android:id="@+id/text_1"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:padding="8dp"
+								android:gravity="center_horizontal|center_vertical"
+								android:text="افلام عربي"
+								android:textSize="16sp"
+								android:textColor="#000000" />
+						</LinearLayout>
+						<LinearLayout
+							android:id="@+id/linear43"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_margin="10dp"
+							android:padding="5dp"
+							android:background="#F48FB1"
+							android:gravity="center_horizontal|center_vertical"
+							android:orientation="vertical">
+							<ImageView
+								android:id="@+id/imageview21"
+								android:layout_width="90dp"
+								android:layout_height="90dp"
+								android:src="@drawable/loupe_2"
+								android:scaleType="fitCenter" />
+							<TextView
+								android:id="@+id/text_2"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:padding="8dp"
+								android:gravity="center_horizontal|center_vertical"
+								android:text="افلام اجنبي"
+								android:textSize="16sp"
+								android:textColor="#000000" />
+						</LinearLayout>
+						<LinearLayout
+							android:id="@+id/linear44"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_margin="10dp"
+							android:padding="5dp"
+							android:background="#F48FB1"
+							android:gravity="center_horizontal|center_vertical"
+							android:orientation="vertical">
+							<ImageView
+								android:id="@+id/imageview22"
+								android:layout_width="90dp"
+								android:layout_height="90dp"
+								android:src="@drawable/loupe_2"
+								android:scaleType="fitCenter" />
+							<TextView
+								android:id="@+id/text_3"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:padding="8dp"
+								android:gravity="center_horizontal|center_vertical"
+								android:text="افلام هندي"
+								android:textSize="16sp"
+								android:textColor="#000000" />
+						</LinearLayout>
+						<LinearLayout
+							android:id="@+id/linear45"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_margin="10dp"
+							android:padding="5dp"
+							android:background="#F48FB1"
+							android:gravity="center_horizontal|center_vertical"
+							android:orientation="vertical">
+							<ImageView
+								android:id="@+id/imageview23"
+								android:layout_width="90dp"
+								android:layout_height="90dp"
+								android:src="@drawable/loupe_2"
+								android:scaleType="fitCenter" />
+							<TextView
+								android:id="@+id/text_4"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:padding="8dp"
+								android:gravity="center_horizontal|center_vertical"
+								android:text="افلام تركي"
+								android:textSize="16sp"
+								android:textColor="#000000" />
+						</LinearLayout>
+						<LinearLayout
+							android:id="@+id/linear46"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_margin="10dp"
+							android:padding="5dp"
+							android:background="#F48FB1"
+							android:gravity="center_horizontal|center_vertical"
+							android:orientation="vertical">
+							<ImageView
+								android:id="@+id/imageview24"
+								android:layout_width="90dp"
+								android:layout_height="90dp"
+								android:src="@drawable/loupe_2"
+								android:scaleType="fitCenter" />
+							<TextView
+								android:id="@+id/text_5"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:padding="8dp"
+								android:gravity="center_horizontal|center_vertical"
+								android:text="افلام وثائقية"
+								android:textSize="16sp"
+								android:textColor="#000000" />
+						</LinearLayout>
+						<LinearLayout
+							android:id="@+id/linear47"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_margin="10dp"
+							android:padding="5dp"
+							android:background="#F48FB1"
+							android:gravity="center_horizontal|center_vertical"
+							android:orientation="vertical">
+							<ImageView
+								android:id="@+id/imageview25"
+								android:layout_width="90dp"
+								android:layout_height="90dp"
+								android:src="@drawable/loupe_2"
+								android:scaleType="fitCenter" />
+							<TextView
+								android:id="@+id/text_6"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:padding="8dp"
+								android:gravity="center_horizontal|center_vertical"
+								android:text="افلام انمي"
+								android:textSize="16sp"
+								android:textColor="#000000" />
+						</LinearLayout>
+					</LinearLayout>
+				</ScrollView>
+				<ScrollView
+					android:id="@+id/vscroll3"
+					android:layout_width="20dp"
+					android:layout_height="match_parent">
+					<LinearLayout
+						android:id="@+id/linear62"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="10dp"
+						android:gravity="center_horizontal|center_vertical"
+						android:orientation="vertical">
+						<LinearLayout
+							android:id="@+id/linear51"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_margin="10dp"
+							android:padding="5dp"
+							android:background="#CE93D8"
+							android:gravity="center_horizontal|center_vertical"
+							android:orientation="vertical">
+							<ImageView
+								android:id="@+id/imageview27"
+								android:layout_width="90dp"
+								android:layout_height="90dp"
+								android:src="@drawable/loupe_3"
+								android:scaleType="fitCenter" />
+							<TextView
+								android:id="@+id/text_01"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:padding="8dp"
+								android:gravity="center_horizontal|center_vertical"
+								android:text="مسلسلات عربي"
+								android:textSize="16sp"
+								android:textColor="#000000" />
+						</LinearLayout>
+						<LinearLayout
+							android:id="@+id/linear52"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_margin="10dp"
+							android:padding="5dp"
+							android:background="#CE93D8"
+							android:gravity="center_horizontal|center_vertical"
+							android:orientation="vertical">
+							<ImageView
+								android:id="@+id/imageview28"
+								android:layout_width="90dp"
+								android:layout_height="90dp"
+								android:src="@drawable/loupe_3"
+								android:scaleType="fitCenter" />
+							<TextView
+								android:id="@+id/text_02"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:padding="8dp"
+								android:gravity="center_horizontal|center_vertical"
+								android:text="مسلسلات اجنبي"
+								android:textSize="16sp"
+								android:textColor="#000000" />
+						</LinearLayout>
+						<LinearLayout
+							android:id="@+id/linear53"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_margin="10dp"
+							android:padding="5dp"
+							android:background="#CE93D8"
+							android:gravity="center_horizontal|center_vertical"
+							android:orientation="vertical">
+							<ImageView
+								android:id="@+id/imageview29"
+								android:layout_width="90dp"
+								android:layout_height="90dp"
+								android:src="@drawable/loupe_3"
+								android:scaleType="fitCenter" />
+							<TextView
+								android:id="@+id/text_03"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:padding="8dp"
+								android:gravity="center_horizontal|center_vertical"
+								android:text="مسلسلات هندي"
+								android:textSize="16sp"
+								android:textColor="#000000" />
+						</LinearLayout>
+						<LinearLayout
+							android:id="@+id/linear54"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_margin="10dp"
+							android:padding="5dp"
+							android:background="#CE93D8"
+							android:gravity="center_horizontal|center_vertical"
+							android:orientation="vertical">
+							<ImageView
+								android:id="@+id/imageview30"
+								android:layout_width="90dp"
+								android:layout_height="90dp"
+								android:src="@drawable/loupe_3"
+								android:scaleType="fitCenter" />
+							<TextView
+								android:id="@+id/text_04"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:padding="8dp"
+								android:gravity="center_horizontal|center_vertical"
+								android:text="مسلسلات تركي"
+								android:textSize="16sp"
+								android:textColor="#000000" />
+						</LinearLayout>
+						<LinearLayout
+							android:id="@+id/linear55"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_margin="10dp"
+							android:padding="5dp"
+							android:background="#CE93D8"
+							android:gravity="center_horizontal|center_vertical"
+							android:orientation="vertical">
+							<ImageView
+								android:id="@+id/imageview31"
+								android:layout_width="90dp"
+								android:layout_height="90dp"
+								android:src="@drawable/loupe_3"
+								android:scaleType="fitCenter" />
+							<TextView
+								android:id="@+id/text_05"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:padding="8dp"
+								android:gravity="center_horizontal|center_vertical"
+								android:text="مسلسلات وثائقية"
+								android:textSize="16sp"
+								android:textColor="#000000" />
+						</LinearLayout>
+						<LinearLayout
+							android:id="@+id/linear56"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_margin="10dp"
+							android:padding="5dp"
+							android:background="#CE93D8"
+							android:gravity="center_horizontal|center_vertical"
+							android:orientation="vertical">
+							<ImageView
+								android:id="@+id/imageview32"
+								android:layout_width="90dp"
+								android:layout_height="90dp"
+								android:src="@drawable/loupe_3"
+								android:scaleType="fitCenter" />
+							<TextView
+								android:id="@+id/text_06"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:padding="8dp"
+								android:gravity="center_horizontal|center_vertical"
+								android:text="مسلسلات انمي"
+								android:textSize="16sp"
+								android:textColor="#000000" />
+						</LinearLayout>
+					</LinearLayout>
+				</ScrollView>
+				<LinearLayout
+					android:id="@+id/gred"
+					android:layout_width="20dp"
+					android:layout_height="match_parent"
+					android:padding="8dp"
+					android:gravity="center_horizontal"
+					android:orientation="vertical">
+					<GridView
+						android:id="@+id/gridview1"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:padding="8dp"
+						android:layout_weight="1"
+						android:numColumns="3"
+						android:stretchMode="columnWidth" />
+					<LinearLayout
+						android:id="@+id/linear69"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="8dp"
+						android:gravity="center_horizontal|center_vertical"
+						android:orientation="horizontal">
+						<Button
+							android:id="@+id/button1"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_margin="8dp"
+							android:background="#80CBC4"
+							android:text="السابق"
+							android:textSize="12sp"
+							android:textColor="#000000"
+							android:layout_weight="1" />
+						<TextView
+							android:id="@+id/textview1"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:padding="8dp"
+							android:text="0"
+							android:textSize="12sp"
+							android:textColor="#000000" />
+						<Button
+							android:id="@+id/button2"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_margin="8dp"
+							android:background="#80DEEA"
+							android:text="التالي"
+							android:textSize="12sp"
+							android:textColor="#000000"
+							android:layout_weight="1" />
+					</LinearLayout>
+					<LinearLayout
+						android:id="@+id/linear9"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="8dp"
+						android:gravity="center_horizontal|center_vertical"
+						android:orientation="vertical"
+						android:layout_weight="1">
+						<ImageView
+							android:id="@+id/imageview2"
+							android:layout_width="120dp"
+							android:layout_height="120dp"
+							android:src="@drawable/schedule"
+							android:scaleType="fitCenter" />
+						<TextView
+							android:id="@+id/textview9"
+							android:layout_width="300dp"
+							android:layout_height="wrap_content"
+							android:padding="4dp"
+							android:gravity="center_horizontal|center_vertical"
+							android:text="عفوا لقد حدث خطا اضغط لاعادة المحاولة"
+							android:textSize="20sp"
+							android:textStyle="bold"
+							android:textColor="#000000" />
+					</LinearLayout>
+				</LinearLayout>
 			</LinearLayout>
 		</LinearLayout>
+	</androidx.coordinatorlayout.widget.CoordinatorLayout>
+	<LinearLayout
+		android:id="@+id/_nav_view"
+		android:layout_width="320dp"
+		android:layout_height="match_parent"
+		android:layout_gravity="start"
+		android:background="#EEEEEE">
+		<include layout="@layout/_drawer_aflam" />
 	</LinearLayout>
-</LinearLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

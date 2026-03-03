@@ -1,6 +1,7 @@
 package vip.mtx.tv;
 
 import android.animation.*;
+import android.animation.ObjectAnimator;
 import android.app.*;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -17,18 +18,27 @@ import android.net.*;
 import android.net.Uri;
 import android.os.*;
 import android.text.*;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.style.*;
 import android.util.*;
 import android.view.*;
 import android.view.View;
 import android.view.View.*;
 import android.view.animation.*;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.BounceInterpolator;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.LinearInterpolator;
 import android.webkit.*;
 import android.widget.*;
-import android.widget.Button;
+import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
+import android.widget.ListView;
 import android.widget.TextView;
 import androidx.annotation.*;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -65,7 +75,7 @@ import org.json.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-public class AflamActivity extends AppCompatActivity {
+public class LiveActivity extends AppCompatActivity {
 	
 	private Timer _timer = new Timer();
 	private FirebaseDatabase _firebase = FirebaseDatabase.getInstance();
@@ -76,15 +86,6 @@ public class AflamActivity extends AppCompatActivity {
 	private DrawerLayout _drawer;
 	private String fontName = "";
 	private String typeace = "";
-	private double N00 = 0;
-	private double N01 = 0;
-	private double N0 = 0;
-	private double N1 = 0;
-	private double n0 = 0;
-	private double m0 = 0;
-	private double n1 = 0;
-	private double m1 = 0;
-	private double change = 0;
 	private String url = "";
 	private String url0 = "";
 	private String url1 = "";
@@ -92,35 +93,42 @@ public class AflamActivity extends AppCompatActivity {
 	private double pos2 = 0;
 	private double pos1 = 0;
 	private double pos = 0;
-	private String st = "";
+	private String html1 = "";
 	private String html = "";
-	private String img = "";
-	private String name = "";
-	private String alt = "";
 	private String NewSource = "";
-	private String string = "";
-	private double PageLimit = 0;
-	private boolean statusLoad = false;
-	private double ops1 = 0;
-	private double ops2 = 0;
-	private double BackPosition = 0;
-	private String imgg = "";
-	private String eng = "";
-	private String nam = "";
-	private double xx = 0;
+	private String html0 = "";
+	private String cup = "";
+	private String tv = "";
+	private String mic = "";
+	private String match = "";
+	private String time = "";
+	private double number = 0;
+	private double length = 0;
+	private String watch = "";
+	private String watch_live = "";
+	private String watch_finsh = "";
+	private String txt = "";
+	private String user = "";
+	private String refer = "";
 	
-	private ArrayList<HashMap<String, Object>> map = new ArrayList<>();
-	private ArrayList<HashMap<String, Object>> series = new ArrayList<>();
-	private ArrayList<HashMap<String, Object>> mapNames = new ArrayList<>();
-	private ArrayList<String> imgbbbb = new ArrayList<>();
-	private ArrayList<HashMap<String, Object>> we = new ArrayList<>();
-	private ArrayList<String> linkkk = new ArrayList<>();
+	private ArrayList<HashMap<String, Object>> mpl = new ArrayList<>();
+	private ArrayList<String> listImg2 = new ArrayList<>();
+	private ArrayList<String> listName2 = new ArrayList<>();
+	private ArrayList<String> listTV = new ArrayList<>();
+	private ArrayList<String> listMIC = new ArrayList<>();
+	private ArrayList<String> listCUP = new ArrayList<>();
+	private ArrayList<String> listImg1 = new ArrayList<>();
+	private ArrayList<String> listName1 = new ArrayList<>();
+	private ArrayList<String> listDate = new ArrayList<>();
+	private ArrayList<String> listhala = new ArrayList<>();
+	private ArrayList<HashMap<String, Object>> listUrl = new ArrayList<>();
+	private ArrayList<HashMap<String, Object>> livet = new ArrayList<>();
 	
-	private LinearLayout linear2;
+	private LinearLayout linear18;
 	private LinearLayout taplayout;
 	private LinearLayout linear14;
-	private LinearLayout linear18;
-	private ImageView imageview4;
+	private LinearLayout linear1;
+	private ImageView imageview2;
 	private ImageView imageview5;
 	private ImageView imageview6;
 	private TextView textview2;
@@ -129,69 +137,16 @@ public class AflamActivity extends AppCompatActivity {
 	private LinearLayout linear15;
 	private LinearLayout linear16;
 	private LinearLayout linear17;
-	private ScrollView vscroll1;
-	private ScrollView vscroll2;
-	private ScrollView vscroll3;
-	private LinearLayout gred;
-	private LinearLayout linear19;
-	private LinearLayout linear27;
-	private LinearLayout linear28;
-	private LinearLayout linear29;
-	private LinearLayout linear30;
-	private ImageView imageview9;
-	private TextView text1;
-	private ImageView imageview10;
-	private TextView text2;
-	private ImageView imageview11;
-	private TextView text3;
-	private ImageView imageview12;
-	private TextView text4;
-	private LinearLayout linear31;
-	private LinearLayout linear42;
-	private LinearLayout linear43;
-	private LinearLayout linear44;
-	private LinearLayout linear45;
-	private LinearLayout linear46;
-	private LinearLayout linear47;
-	private ImageView imageview20;
-	private TextView text_1;
-	private ImageView imageview21;
-	private TextView text_2;
-	private ImageView imageview22;
-	private TextView text_3;
-	private ImageView imageview23;
-	private TextView text_4;
-	private ImageView imageview24;
-	private TextView text_5;
-	private ImageView imageview25;
-	private TextView text_6;
-	private LinearLayout linear62;
-	private LinearLayout linear51;
-	private LinearLayout linear52;
-	private LinearLayout linear53;
-	private LinearLayout linear54;
-	private LinearLayout linear55;
-	private LinearLayout linear56;
-	private ImageView imageview27;
-	private TextView text_01;
-	private ImageView imageview28;
-	private TextView text_02;
-	private ImageView imageview29;
-	private TextView text_03;
-	private ImageView imageview30;
-	private TextView text_04;
-	private ImageView imageview31;
-	private TextView text_05;
-	private ImageView imageview32;
-	private TextView text_06;
-	private GridView gridview1;
-	private LinearLayout linear69;
-	private LinearLayout linear9;
-	private Button button1;
+	private LinearLayout linear2;
+	private LinearLayout linear60;
+	private ListView listview1;
+	private LinearLayout linear3;
+	private LinearLayout linear61;
+	private TextView textview5;
+	private EditText edittext_date;
+	private ImageView imageview_click;
+	private ImageView imageview1;
 	private TextView textview1;
-	private Button button2;
-	private ImageView imageview2;
-	private TextView textview9;
 	private LinearLayout _drawer_linear1;
 	private LinearLayout _drawer_linear4;
 	private LinearLayout _drawer_linear3;
@@ -225,26 +180,25 @@ public class AflamActivity extends AppCompatActivity {
 	private ImageView _drawer_exit_img;
 	private TextView _drawer_textview7;
 	
-	private Intent i = new Intent();
+	private Intent live = new Intent();
+	private ObjectAnimator animation_ = new ObjectAnimator();
 	private AlertDialog.Builder dialog;
 	private TimerTask t;
-	private RequestNetwork req;
-	private RequestNetwork.RequestListener _req_request_listener;
-	private TimerTask ww;
+	private Intent i = new Intent();
 	private DatabaseReference link = _firebase.getReference("link");
 	private ChildEventListener _link_child_listener;
+	private RequestNetwork req;
+	private RequestNetwork.RequestListener _req_request_listener;
 	private SharedPreferences settings;
-	private RequestNetwork req1;
-	private RequestNetwork.RequestListener _req1_request_listener;
-	private RequestNetwork req2;
-	private RequestNetwork.RequestListener _req2_request_listener;
 	private TimerTask entimer;
+	private DatabaseReference mt = _firebase.getReference("mt");
+	private ChildEventListener _mt_child_listener;
 	private SharedPreferences shared;
 	
 	@Override
 	protected void onCreate(Bundle _savedInstanceState) {
 		super.onCreate(_savedInstanceState);
-		setContentView(R.layout.aflam);
+		setContentView(R.layout.live);
 		initialize(_savedInstanceState);
 		FirebaseApp.initializeApp(this);
 		initializeLogic();
@@ -264,17 +218,17 @@ public class AflamActivity extends AppCompatActivity {
 			}
 		});
 		_drawer = findViewById(R.id._drawer);
-		ActionBarDrawerToggle _toggle = new ActionBarDrawerToggle(AflamActivity.this, _drawer, _toolbar, R.string.app_name, R.string.app_name);
+		ActionBarDrawerToggle _toggle = new ActionBarDrawerToggle(LiveActivity.this, _drawer, _toolbar, R.string.app_name, R.string.app_name);
 		_drawer.addDrawerListener(_toggle);
 		_toggle.syncState();
 		
 		LinearLayout _nav_view = findViewById(R.id._nav_view);
 		
-		linear2 = findViewById(R.id.linear2);
+		linear18 = findViewById(R.id.linear18);
 		taplayout = findViewById(R.id.taplayout);
 		linear14 = findViewById(R.id.linear14);
-		linear18 = findViewById(R.id.linear18);
-		imageview4 = findViewById(R.id.imageview4);
+		linear1 = findViewById(R.id.linear1);
+		imageview2 = findViewById(R.id.imageview2);
 		imageview5 = findViewById(R.id.imageview5);
 		imageview6 = findViewById(R.id.imageview6);
 		textview2 = findViewById(R.id.textview2);
@@ -283,69 +237,16 @@ public class AflamActivity extends AppCompatActivity {
 		linear15 = findViewById(R.id.linear15);
 		linear16 = findViewById(R.id.linear16);
 		linear17 = findViewById(R.id.linear17);
-		vscroll1 = findViewById(R.id.vscroll1);
-		vscroll2 = findViewById(R.id.vscroll2);
-		vscroll3 = findViewById(R.id.vscroll3);
-		gred = findViewById(R.id.gred);
-		linear19 = findViewById(R.id.linear19);
-		linear27 = findViewById(R.id.linear27);
-		linear28 = findViewById(R.id.linear28);
-		linear29 = findViewById(R.id.linear29);
-		linear30 = findViewById(R.id.linear30);
-		imageview9 = findViewById(R.id.imageview9);
-		text1 = findViewById(R.id.text1);
-		imageview10 = findViewById(R.id.imageview10);
-		text2 = findViewById(R.id.text2);
-		imageview11 = findViewById(R.id.imageview11);
-		text3 = findViewById(R.id.text3);
-		imageview12 = findViewById(R.id.imageview12);
-		text4 = findViewById(R.id.text4);
-		linear31 = findViewById(R.id.linear31);
-		linear42 = findViewById(R.id.linear42);
-		linear43 = findViewById(R.id.linear43);
-		linear44 = findViewById(R.id.linear44);
-		linear45 = findViewById(R.id.linear45);
-		linear46 = findViewById(R.id.linear46);
-		linear47 = findViewById(R.id.linear47);
-		imageview20 = findViewById(R.id.imageview20);
-		text_1 = findViewById(R.id.text_1);
-		imageview21 = findViewById(R.id.imageview21);
-		text_2 = findViewById(R.id.text_2);
-		imageview22 = findViewById(R.id.imageview22);
-		text_3 = findViewById(R.id.text_3);
-		imageview23 = findViewById(R.id.imageview23);
-		text_4 = findViewById(R.id.text_4);
-		imageview24 = findViewById(R.id.imageview24);
-		text_5 = findViewById(R.id.text_5);
-		imageview25 = findViewById(R.id.imageview25);
-		text_6 = findViewById(R.id.text_6);
-		linear62 = findViewById(R.id.linear62);
-		linear51 = findViewById(R.id.linear51);
-		linear52 = findViewById(R.id.linear52);
-		linear53 = findViewById(R.id.linear53);
-		linear54 = findViewById(R.id.linear54);
-		linear55 = findViewById(R.id.linear55);
-		linear56 = findViewById(R.id.linear56);
-		imageview27 = findViewById(R.id.imageview27);
-		text_01 = findViewById(R.id.text_01);
-		imageview28 = findViewById(R.id.imageview28);
-		text_02 = findViewById(R.id.text_02);
-		imageview29 = findViewById(R.id.imageview29);
-		text_03 = findViewById(R.id.text_03);
-		imageview30 = findViewById(R.id.imageview30);
-		text_04 = findViewById(R.id.text_04);
-		imageview31 = findViewById(R.id.imageview31);
-		text_05 = findViewById(R.id.text_05);
-		imageview32 = findViewById(R.id.imageview32);
-		text_06 = findViewById(R.id.text_06);
-		gridview1 = findViewById(R.id.gridview1);
-		linear69 = findViewById(R.id.linear69);
-		linear9 = findViewById(R.id.linear9);
-		button1 = findViewById(R.id.button1);
+		linear2 = findViewById(R.id.linear2);
+		linear60 = findViewById(R.id.linear60);
+		listview1 = findViewById(R.id.listview1);
+		linear3 = findViewById(R.id.linear3);
+		linear61 = findViewById(R.id.linear61);
+		textview5 = findViewById(R.id.textview5);
+		edittext_date = findViewById(R.id.edittext_date);
+		imageview_click = findViewById(R.id.imageview_click);
+		imageview1 = findViewById(R.id.imageview1);
 		textview1 = findViewById(R.id.textview1);
-		button2 = findViewById(R.id.button2);
-		imageview2 = findViewById(R.id.imageview2);
-		textview9 = findViewById(R.id.textview9);
 		_drawer_linear1 = _nav_view.findViewById(R.id.linear1);
 		_drawer_linear4 = _nav_view.findViewById(R.id.linear4);
 		_drawer_linear3 = _nav_view.findViewById(R.id.linear3);
@@ -381,11 +282,9 @@ public class AflamActivity extends AppCompatActivity {
 		dialog = new AlertDialog.Builder(this);
 		req = new RequestNetwork(this);
 		settings = getSharedPreferences("settings", Activity.MODE_PRIVATE);
-		req1 = new RequestNetwork(this);
-		req2 = new RequestNetwork(this);
 		shared = getSharedPreferences("shared", Activity.MODE_PRIVATE);
 		
-		imageview4.setOnClickListener(new View.OnClickListener() {
+		imageview2.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View _view) {
 				_drawer.openDrawer(GravityCompat.START);
@@ -399,7 +298,7 @@ public class AflamActivity extends AppCompatActivity {
 				final AlertDialog dialog = new 
 				
 				//غير الأسماء
-				 AlertDialog.Builder(AflamActivity.this).create();
+				 AlertDialog.Builder(LiveActivity.this).create();
 				LayoutInflater inflater = getLayoutInflater();
 				
 				View convertView = (View) inflater.inflate(R.layout.exit5, null);
@@ -465,375 +364,59 @@ public class AflamActivity extends AppCompatActivity {
 		textview2.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View _view) {
-				i.setClass(getApplicationContext(), CategoryActivity.class);
-				startActivity(i);
+				live.setClass(getApplicationContext(), CategoryActivity.class);
+				startActivity(live);
 				overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 			}
 		});
 		
-		textview4.setOnClickListener(new View.OnClickListener() {
+		textview3.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View _view) {
-				i.setClass(getApplicationContext(), LiveActivity.class);
-				startActivity(i);
+				live.setClass(getApplicationContext(), AflamActivity.class);
+				startActivity(live);
 				overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 			}
 		});
 		
-		linear27.setOnClickListener(new View.OnClickListener() {
+		edittext_date.addTextChangedListener(new TextWatcher() {
 			@Override
-			public void onClick(View _view) {
-				vscroll1.setVisibility(View.GONE);
-				vscroll2.setVisibility(View.VISIBLE);
-				vscroll3.setVisibility(View.GONE);
-				gred.setVisibility(View.GONE);
-				eng = "H";
-			}
-		});
-		
-		linear28.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				vscroll1.setVisibility(View.GONE);
-				vscroll2.setVisibility(View.GONE);
-				vscroll3.setVisibility(View.VISIBLE);
-				gred.setVisibility(View.GONE);
-				eng = "H";
-			}
-		});
-		
-		linear29.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				vscroll1.setVisibility(View.GONE);
-				vscroll2.setVisibility(View.GONE);
-				vscroll3.setVisibility(View.GONE);
-				gred.setVisibility(View.VISIBLE);
-				imgbbbb.clear();
-				mapNames.clear();
-				linkkk.clear();
-				we.clear();
-				string = "https://wecima.co/category/%d8%a8%d8%b1%d8%a7%d9%85%d8%ac-%d8%aa%d9%84%d9%8a%d9%81%d8%b2%d9%8a%d9%88%d9%86%d9%8a%d8%a9";
-				_DialogShow(true);
-				eng = "H";
-			}
-		});
-		
-		linear30.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				vscroll1.setVisibility(View.GONE);
-				vscroll2.setVisibility(View.GONE);
-				vscroll3.setVisibility(View.GONE);
-				gred.setVisibility(View.VISIBLE);
-				imgbbbb.clear();
-				mapNames.clear();
-				linkkk.clear();
-				we.clear();
-				string = "https://wecima.co/category/%d9%85%d8%b5%d8%a7%d8%b1%d8%b9%d8%a9-%d8%ad%d8%b1%d8%a9/";
-				_DialogShow(true);
-				eng = "H";
-			}
-		});
-		
-		linear42.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				vscroll1.setVisibility(View.GONE);
-				vscroll2.setVisibility(View.GONE);
-				vscroll3.setVisibility(View.GONE);
-				gred.setVisibility(View.VISIBLE);
-				imgbbbb.clear();
-				mapNames.clear();
-				linkkk.clear();
-				we.clear();
-				string = "https://wecima.co/category/%d8%a7%d9%81%d9%84%d8%a7%d9%85/%d8%a7%d9%81%d9%84%d8%a7%d9%85-%d8%b9%d8%b1%d8%a8%d9%8a-arabic-movies/";
-				_DialogShow(true);
-				eng = "M";
-			}
-		});
-		
-		linear43.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				vscroll1.setVisibility(View.GONE);
-				vscroll2.setVisibility(View.GONE);
-				vscroll3.setVisibility(View.GONE);
-				gred.setVisibility(View.VISIBLE);
-				imgbbbb.clear();
-				mapNames.clear();
-				linkkk.clear();
-				we.clear();
-				string = "https://wecima.co/category/%d8%a7%d9%81%d9%84%d8%a7%d9%85/10-movies-english-%d8%a7%d9%81%d9%84%d8%a7%d9%85-%d8%a7%d8%ac%d9%86%d8%a8%d9%8a/";
-				_DialogShow(true);
-				eng = "M";
-			}
-		});
-		
-		linear44.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				vscroll1.setVisibility(View.GONE);
-				vscroll2.setVisibility(View.GONE);
-				vscroll3.setVisibility(View.GONE);
-				gred.setVisibility(View.VISIBLE);
-				imgbbbb.clear();
-				mapNames.clear();
-				linkkk.clear();
-				we.clear();
-				string = "https://wecima.co/category/%d8%a7%d9%81%d9%84%d8%a7%d9%85/%d8%a7%d9%81%d9%84%d8%a7%d9%85-%d9%87%d9%86%d8%af%d9%8a-indian-movies/";
-				_DialogShow(true);
-				eng = "M";
-			}
-		});
-		
-		linear45.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				vscroll1.setVisibility(View.GONE);
-				vscroll2.setVisibility(View.GONE);
-				vscroll3.setVisibility(View.GONE);
-				gred.setVisibility(View.VISIBLE);
-				imgbbbb.clear();
-				mapNames.clear();
-				linkkk.clear();
-				we.clear();
-				string = "https://wecima.co/category/%d8%a7%d9%81%d9%84%d8%a7%d9%85/%d8%a7%d9%81%d9%84%d8%a7%d9%85-%d8%aa%d8%b1%d9%83%d9%89-turkish-films/";
-				_DialogShow(true);
-				eng = "M";
-			}
-		});
-		
-		linear46.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				vscroll1.setVisibility(View.GONE);
-				vscroll2.setVisibility(View.GONE);
-				vscroll3.setVisibility(View.GONE);
-				gred.setVisibility(View.VISIBLE);
-				imgbbbb.clear();
-				mapNames.clear();
-				linkkk.clear();
-				we.clear();
-				string = "https://wecima.co/category/%d8%a7%d9%81%d9%84%d8%a7%d9%85/%d8%a7%d9%81%d9%84%d8%a7%d9%85-%d9%88%d8%ab%d8%a7%d8%a6%d9%82%d9%8a%d8%a9-documentary-films/";
-				_DialogShow(true);
-				eng = "M";
-			}
-		});
-		
-		linear47.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				vscroll1.setVisibility(View.GONE);
-				vscroll2.setVisibility(View.GONE);
-				vscroll3.setVisibility(View.GONE);
-				gred.setVisibility(View.VISIBLE);
-				imgbbbb.clear();
-				mapNames.clear();
-				linkkk.clear();
-				we.clear();
-				string = "https://wecima.co/category/%d8%a7%d9%81%d9%84%d8%a7%d9%85-%d9%83%d8%b1%d8%aa%d9%88%d9%86/";
-				_DialogShow(true);
-				eng = "M";
-			}
-		});
-		
-		linear51.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				vscroll1.setVisibility(View.GONE);
-				vscroll2.setVisibility(View.GONE);
-				vscroll3.setVisibility(View.GONE);
-				gred.setVisibility(View.VISIBLE);
-				imgbbbb.clear();
-				mapNames.clear();
-				linkkk.clear();
-				we.clear();
-				string = "https://wecima.co/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa/13-%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%b9%d8%b1%d8%a8%d9%8a%d9%87-arabic-series";
-				_DialogShow(true);
-				eng = "S";
-			}
-		});
-		
-		linear52.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				vscroll1.setVisibility(View.GONE);
-				vscroll2.setVisibility(View.GONE);
-				vscroll3.setVisibility(View.GONE);
-				gred.setVisibility(View.VISIBLE);
-				imgbbbb.clear();
-				mapNames.clear();
-				linkkk.clear();
-				we.clear();
-				string = "https://wecima.co/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa/5-series-english-%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%a7%d8%ac%d9%86%d8%a8%d9%8a";
-				_DialogShow(true);
-				eng = "S";
-			}
-		});
-		
-		linear53.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				vscroll1.setVisibility(View.GONE);
-				vscroll2.setVisibility(View.GONE);
-				vscroll3.setVisibility(View.GONE);
-				gred.setVisibility(View.VISIBLE);
-				imgbbbb.clear();
-				mapNames.clear();
-				linkkk.clear();
-				we.clear();
-				string = "https://wecima.co/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa/9-series-indian-%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d9%87%d9%86%d8%af%d9%8a%d8%a9";
-				_DialogShow(true);
-				eng = "S";
-			}
-		});
-		
-		linear54.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				vscroll1.setVisibility(View.GONE);
-				vscroll2.setVisibility(View.GONE);
-				vscroll3.setVisibility(View.GONE);
-				gred.setVisibility(View.VISIBLE);
-				imgbbbb.clear();
-				mapNames.clear();
-				linkkk.clear();
-				we.clear();
-				string = "https://wecima.co/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa/8-%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%aa%d8%b1%d9%83%d9%8a%d8%a9-turkish-series";
-				_DialogShow(true);
-				eng = "S";
-			}
-		});
-		
-		linear55.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				vscroll1.setVisibility(View.GONE);
-				vscroll2.setVisibility(View.GONE);
-				vscroll3.setVisibility(View.GONE);
-				gred.setVisibility(View.VISIBLE);
-				imgbbbb.clear();
-				mapNames.clear();
-				linkkk.clear();
-				we.clear();
-				string = "https://wecima.co/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d9%88%d8%ab%d8%a7%d8%a6%d9%82%d9%8a%d8%a9-documentary-series";
-				_DialogShow(true);
-				eng = "S";
-			}
-		});
-		
-		linear56.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				vscroll1.setVisibility(View.GONE);
-				vscroll2.setVisibility(View.GONE);
-				vscroll3.setVisibility(View.GONE);
-				gred.setVisibility(View.VISIBLE);
-				imgbbbb.clear();
-				mapNames.clear();
-				linkkk.clear();
-				we.clear();
-				string = "https://wecima.co/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d9%83%d8%b1%d8%aa%d9%88%d9%86";
-				_DialogShow(true);
-				eng = "S";
-			}
-		});
-		
-		linear9.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				if (xx == 0) {
-					_telegramLoaderDialog(true);
-					linear9.setVisibility(View.GONE);
-					gridview1.setVisibility(View.VISIBLE);
-					linear69.setVisibility(View.VISIBLE);
-					PageLimit++;
-					_DialogShow(true);
-					entimer = new TimerTask() {
-						@Override
-						public void run() {
-							runOnUiThread(new Runnable() {
-								@Override
-								public void run() {
-									imgbbbb.clear();
-									mapNames.clear();
-									linkkk.clear();
-									we.clear();
-									PageLimit--;
-									_DialogShow(true);
-								}
-							});
-						}
-					};
-					_timer.schedule(entimer, (int)(3000));
-					xx++;
-				}
-				else {
-					linear9.setVisibility(View.GONE);
-					gridview1.setVisibility(View.VISIBLE);
-					linear69.setVisibility(View.VISIBLE);
-				}
-			}
-		});
-		
-		button1.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				if (PageLimit == 1) {
-					SketchwareUtil.showMessage(getApplicationContext(), "انت ف اول صفحة");
-				}
-				else {
-					PageLimit--;
-					_DialogShow(true);
-				}
-			}
-		});
-		
-		button2.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				PageLimit++;
-				_DialogShow(true);
-			}
-		});
-		
-		_req_request_listener = new RequestNetwork.RequestListener() {
-			@Override
-			public void onResponse(String _param1, String _param2, HashMap<String, Object> _param3) {
-				final String _tag = _param1;
-				final String _response = _param2;
-				final HashMap<String, Object> _responseHeaders = _param3;
-				try{
-					if (" آخر الإضافات".contains(_response)) {
-						ops1 = _response.indexOf(" آخر الإضافات");
-						ops2 = _response.indexOf("تابع وي سيم");
-						_GetSource(_response.substring((int)(ops1), (int)(ops2)), 0, "<div class=\"Thumb--GridItem\"><a href=\"", "<span class=\"year\">");
-						statusLoad = false;
-					}
-					else {
-						ops1 = _response.indexOf("</wecimaslider>");
-						ops2 = _response.indexOf("</html>");
-						_GetSource(_response.substring((int)(ops1), (int)(ops2)), 0, "<div class=\"Thumb--GridItem\"><a href=\"", "<span class=\"year\">");
-						statusLoad = false;
-					}
-				}catch(Exception e){
-					gridview1.setVisibility(View.GONE);
-					linear69.setVisibility(View.GONE);
-					linear9.setVisibility(View.VISIBLE);
-					if (xx == 1) {
-						_telegramLoaderDialog(false);
-					}
-				}
+			public void onTextChanged(CharSequence _param1, int _param2, int _param3, int _param4) {
+				final String _charSeq = _param1.toString();
+				linear3.setVisibility(View.GONE);
+				linear60.setVisibility(View.GONE);
+				listUrl.clear();
+				listImg1.clear();
+				listName1.clear();
+				listImg2.clear();
+				listName2.clear();
+				listTV.clear();
+				listMIC.clear();
+				listCUP.clear();
+				listDate.clear();
+				listhala.clear();
+				req.startRequestNetwork(RequestNetworkController.GET, "https://www.yalla-group.com/live/".concat(_charSeq), "", _req_request_listener);
 			}
 			
 			@Override
-			public void onErrorResponse(String _param1, String _param2) {
-				final String _tag = _param1;
-				final String _message = _param2;
+			public void beforeTextChanged(CharSequence _param1, int _param2, int _param3, int _param4) {
 				
 			}
-		};
+			
+			@Override
+			public void afterTextChanged(Editable _param1) {
+				
+			}
+		});
+		
+		imageview_click.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View _view) {
+				androidx.appcompat.app.AppCompatDialogFragment newFragment = new DatePickerFragment();
+				
+				newFragment.show(getSupportFragmentManager(), "Date Picker");
+			}
+		});
 		
 		_link_child_listener = new ChildEventListener() {
 			@Override
@@ -880,50 +463,120 @@ public class AflamActivity extends AppCompatActivity {
 		};
 		link.addChildEventListener(_link_child_listener);
 		
-		_req1_request_listener = new RequestNetwork.RequestListener() {
+		_req_request_listener = new RequestNetwork.RequestListener() {
 			@Override
 			public void onResponse(String _param1, String _param2, HashMap<String, Object> _param3) {
 				final String _tag = _param1;
 				final String _response = _param2;
 				final HashMap<String, Object> _responseHeaders = _param3;
-				html = _response.substring((int)(_response.indexOf("<div class=\"Inner--WatchServersEmbed\">")), (int)(_response.indexOf("<div class=\"loader\">")));
-				Document doc = Jsoup.parse(html);
-				req2.startRequestNetwork(RequestNetworkController.GET, doc.getElementsByTag("iframe").attr("data-lazy-src"), "", _req2_request_listener);
+				_GetSource(_response, 3, "// var data = {date : \"", "\"");
+				if (_response.contains("<span class=\"right-side teams-logo\">")) {
+					match = _response.substring((int)(_response.indexOf("<div class=\"current-plays\">")), (int)(_response.indexOf("</li></ul>")));
+					_GetSource(match, 2, "<span class=\"left-side teams-logo\">", "<span class=\"clickToWatch\">");
+					_GetSource(match, 1, "<span class=\"right-side teams-logo\">", "<span class=\"left-side teams-logo\">");
+					_GetSource(match, 0, "<a href=\"https://www.yalla-group.com/live/match?live_id=", "&");
+				}
+				else {
+					listUrl.clear();
+					listImg1.clear();
+					listName1.clear();
+					listImg2.clear();
+					listName2.clear();
+					listTV.clear();
+					listMIC.clear();
+					listCUP.clear();
+					listDate.clear();
+					listhala.clear();
+					((BaseAdapter)listview1.getAdapter()).notifyDataSetChanged();
+					linear3.setVisibility(View.VISIBLE);
+					linear60.setVisibility(View.VISIBLE);
+				}
 			}
 			
 			@Override
 			public void onErrorResponse(String _param1, String _param2) {
 				final String _tag = _param1;
 				final String _message = _param2;
-				
+				SketchwareUtil.showMessage(getApplicationContext(), "حدث خطأ");
 			}
 		};
 		
-		_req2_request_listener = new RequestNetwork.RequestListener() {
+		_mt_child_listener = new ChildEventListener() {
 			@Override
-			public void onResponse(String _param1, String _param2, HashMap<String, Object> _param3) {
-				final String _tag = _param1;
-				final String _response = _param2;
-				final HashMap<String, Object> _responseHeaders = _param3;
-				html = _response.substring((int)(_response.indexOf("<body>")), (int)(_response.indexOf("</video>")));
-				Document doc = Jsoup.parse(html);
-				i.setClass(getApplicationContext(), MainActivity.class);
-				i.putExtra("txt", nam);
-				i.putExtra("url", doc.getElementsByTag("source").attr("src"));
-				i.putExtra("user_agent", "MTX_TV");
-				i.putExtra("referer", "MTX_TV");
-				i.putExtra("type", "Entertainment");
-				startActivity(i);
-				_telegramLoaderDialog(false);
+			public void onChildAdded(DataSnapshot _param1, String _param2) {
+				GenericTypeIndicator<HashMap<String, Object>> _ind = new GenericTypeIndicator<HashMap<String, Object>>() {};
+				final String _childKey = _param1.getKey();
+				final HashMap<String, Object> _childValue = _param1.getValue(_ind);
+				mt.addListenerForSingleValueEvent(new ValueEventListener() {
+					@Override
+					public void onDataChange(DataSnapshot _dataSnapshot) {
+						livet = new ArrayList<>();
+						try {
+							GenericTypeIndicator<HashMap<String, Object>> _ind = new GenericTypeIndicator<HashMap<String, Object>>() {};
+							for (DataSnapshot _data : _dataSnapshot.getChildren()) {
+								HashMap<String, Object> _map = _data.getValue(_ind);
+								livet.add(_map);
+							}
+						}
+						catch (Exception _e) {
+							_e.printStackTrace();
+						}
+						
+					}
+					@Override
+					public void onCancelled(DatabaseError _databaseError) {
+					}
+				});
 			}
 			
 			@Override
-			public void onErrorResponse(String _param1, String _param2) {
-				final String _tag = _param1;
-				final String _message = _param2;
+			public void onChildChanged(DataSnapshot _param1, String _param2) {
+				GenericTypeIndicator<HashMap<String, Object>> _ind = new GenericTypeIndicator<HashMap<String, Object>>() {};
+				final String _childKey = _param1.getKey();
+				final HashMap<String, Object> _childValue = _param1.getValue(_ind);
+				mt.addListenerForSingleValueEvent(new ValueEventListener() {
+					@Override
+					public void onDataChange(DataSnapshot _dataSnapshot) {
+						livet = new ArrayList<>();
+						try {
+							GenericTypeIndicator<HashMap<String, Object>> _ind = new GenericTypeIndicator<HashMap<String, Object>>() {};
+							for (DataSnapshot _data : _dataSnapshot.getChildren()) {
+								HashMap<String, Object> _map = _data.getValue(_ind);
+								livet.add(_map);
+							}
+						}
+						catch (Exception _e) {
+							_e.printStackTrace();
+						}
+						
+					}
+					@Override
+					public void onCancelled(DatabaseError _databaseError) {
+					}
+				});
+			}
+			
+			@Override
+			public void onChildMoved(DataSnapshot _param1, String _param2) {
+				
+			}
+			
+			@Override
+			public void onChildRemoved(DataSnapshot _param1) {
+				GenericTypeIndicator<HashMap<String, Object>> _ind = new GenericTypeIndicator<HashMap<String, Object>>() {};
+				final String _childKey = _param1.getKey();
+				final HashMap<String, Object> _childValue = _param1.getValue(_ind);
+				
+			}
+			
+			@Override
+			public void onCancelled(DatabaseError _param1) {
+				final int _errorCode = _param1.getCode();
+				final String _errorMessage = _param1.getMessage();
 				
 			}
 		};
+		mt.addChildEventListener(_mt_child_listener);
 		
 		_drawer_linear_exit.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -932,7 +585,7 @@ public class AflamActivity extends AppCompatActivity {
 				final AlertDialog dialog = new 
 				
 				//غير الأسماء
-				 AlertDialog.Builder(AflamActivity.this).create();
+				 AlertDialog.Builder(LiveActivity.this).create();
 				LayoutInflater inflater = getLayoutInflater();
 				
 				View convertView = (View) inflater.inflate(R.layout.exit5, null);
@@ -1040,7 +693,7 @@ public class AflamActivity extends AppCompatActivity {
 				final AlertDialog dialog = new 
 				
 				//غير الأسماء
-				 AlertDialog.Builder(AflamActivity.this).create();
+				 AlertDialog.Builder(LiveActivity.this).create();
 				LayoutInflater inflater = getLayoutInflater();
 				
 				View convertView = (View) inflater.inflate(R.layout.div, null);
@@ -1133,7 +786,7 @@ public class AflamActivity extends AppCompatActivity {
 			@Override
 			public void onClick(View _view) {
 				_drawer.closeDrawer(GravityCompat.START);
-				final com.google.android.material.bottomsheet.BottomSheetDialog bottomSheetDialog = new com.google.android.material.bottomsheet.BottomSheetDialog(AflamActivity.this);
+				final com.google.android.material.bottomsheet.BottomSheetDialog bottomSheetDialog = new com.google.android.material.bottomsheet.BottomSheetDialog(LiveActivity.this);
 				
 				View bottomSheetView; bottomSheetView = getLayoutInflater().inflate(R.layout.policy,null );
 				bottomSheetDialog.setContentView(bottomSheetView);
@@ -1156,6 +809,7 @@ public class AflamActivity extends AppCompatActivity {
 				
 				t1.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/neosansarabic.ttf"), 0);
 				t2.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/neosansarabic.ttf"), 0);
+				b1.setBackgroundColor(0xFF242424);
 				b1.setBackgroundColor(0xFFE0E0E0);
 				_rippleRoundStroke(bg, "#e0e0e0", "#e0e0e0", 15, 0, "#e0e0e0");
 				bottomSheetDialog.setCancelable(true);
@@ -1194,137 +848,35 @@ public class AflamActivity extends AppCompatActivity {
 	}
 	
 	private void initializeLogic() {
+		_telegramLoaderDialog(true);
 		_Setting();
-		if (vpn()) {
-		} else {
-			final AlertDialog dialog = new 
-			
-			//غير الأسماء
-			 AlertDialog.Builder(AflamActivity.this).create();
-			LayoutInflater inflater = getLayoutInflater();
-			
-			View convertView = (View) inflater.inflate(R.layout.exit3, null);
-			dialog.setView(convertView);
-			
-			//تعريف العناصر
-			
-			TextView txt1 = (TextView)convertView.findViewById(R.id.textview1);
-			
-			TextView txt2 = (TextView)convertView.findViewById(R.id.textview2);
-			
-			Button btn1 = (Button)convertView.findViewById(R.id.button1);
-			
-			ImageView imageview1= (ImageView)convertView.findViewById(R.id.imageview1);
-			
-			final LinearLayout linear  = (LinearLayout)convertView.findViewById(R.id.linear1);
-			
-			final LinearLayout linear1  = (LinearLayout)convertView.findViewById(R.id.linear2);
-			
-			txt1.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/neosansarabic.ttf"), 0);
-			
-			txt2.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/neosansarabic.ttf"), 0);
-			
-			btn1.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/neosansarabic.ttf"), 0);
-			
-			//الضغط على الأيقونات
-			
-			btn1.setOnClickListener(new View.OnClickListener() {
-				public void onClick(View v) {
-					dialog.dismiss();
-					_bt1();
-				}});
-			
-			//الحواف دائرية
-			android.graphics.drawable.GradientDrawable d = new android.graphics.drawable.GradientDrawable();
-			d.setColor(Color.parseColor("#e0e0e0"));
-			d.setCornerRadius((int)20f);
-			linear.setBackground(d);
-			
-			android.graphics.drawable.GradientDrawable w = new android.graphics.drawable.GradientDrawable();
-			w.setColor(Color.parseColor("#78022C"));
-			w.setCornerRadius((int)20f);
-			btn1.setBackground(w);
-			
-			dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-			dialog.show();dialog.setCancelable(false);
-			txt2.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View _view) {
-					
-				}
-			});
-		}
-		PageLimit = 1;
-		linear16.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFFFFFFFF));
+		linear17.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFFFFFFFF));
 		_Drawer_Ui();
 		_OnCreate();
 		final LinearLayout _nav_view = (LinearLayout) findViewById(R.id._nav_view); _nav_view.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(Color.TRANSPARENT));
 		_changeActivityFont("neosansarabic");
 		_ICC(imageview6, "#CBD0DA", "#000000");
 		_RippleEffects("#e0e0e0", imageview6);
-		_ICC(imageview4, "#CBD0DA", "#000000");
-		_RippleEffects("#e0e0e0", imageview4);
-		vscroll1.setVisibility(View.VISIBLE);
-		vscroll2.setVisibility(View.GONE);
-		vscroll3.setVisibility(View.GONE);
-		gred.setVisibility(View.GONE);
-		text2.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/neosansarabic.ttf"), 0);
-		text1.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/neosansarabic.ttf"), 0);
-		text3.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/neosansarabic.ttf"), 0);
-		text4.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/neosansarabic.ttf"), 0);
-		gridview1.setSelector(android.R.color.transparent);
-		linear9.setVisibility(View.GONE);
-		xx = 0;
-		eng = "ENG";
-		if (shared.getString("key", "").equals("") || !shared.getString("key", "").contains("MTX-")) {
-			final AlertDialog dialog = new 
-			
-			//غير الأسماء
-			 AlertDialog.Builder(AflamActivity.this).create();
-			LayoutInflater inflater = getLayoutInflater();
-			
-			View convertView = (View) inflater.inflate(R.layout.unsafe, null);
-			dialog.setView(convertView);
-			
-			//تعريف العناصر
-			
-			TextView txt1 = (TextView)convertView.findViewById(R.id.textview1);
-			
-			Button btn1 = (Button)convertView.findViewById(R.id.button1);
-			
-			ImageView imageview1= (ImageView)convertView.findViewById(R.id.imageview1);
-			
-			final LinearLayout linear  = (LinearLayout)convertView.findViewById(R.id.linear1);
-			
-			txt1.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/neosansarabic.ttf"), 0);
-			
-			btn1.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/neosansarabic.ttf"), 0);
-			
-			//الضغط على الأيقونات
-			
-			btn1.setOnClickListener(new View.OnClickListener() {
-				public void onClick(View v) { 
-					dialog.dismiss();
-					_bt11();
-				}});
-			//الحواف دائرية
-			android.graphics.drawable.GradientDrawable wd = new android.graphics.drawable.GradientDrawable();
-			wd.setColor(Color.parseColor("#e0e0e0"));
-			wd.setCornerRadius((int)20f);
-			linear.setBackground(wd);
-			
-			android.graphics.drawable.GradientDrawable d = new android.graphics.drawable.GradientDrawable();
-			d.setColor(Color.parseColor("#78022C"));
-			d.setCornerRadius((int)20f);
-			btn1.setBackground(d);
-			
-			dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-			dialog.show();dialog.setCancelable(false);
-			shared.edit().putString("key", "block").commit();
-		}
-		else {
-			
-		}
+		_ICC(imageview2, "#CBD0DA", "#000000");
+		_RippleEffects("#e0e0e0", imageview2);
+		req.startRequestNetwork(RequestNetworkController.GET, "https://www.yalla-group.com/live/", "", _req_request_listener);
+		linear3.setVisibility(View.GONE);
+		linear60.setVisibility(View.GONE);
+		listview1.setSelector(android.R.color.transparent);
+		entimer = new TimerTask() {
+			@Override
+			public void run() {
+				runOnUiThread(new Runnable() {
+					@Override
+					public void run() {
+						if (livet.size() > 0) {
+							_telegramLoaderDialog(false);
+						}
+					}
+				});
+			}
+		};
+		_timer.scheduleAtFixedRate(entimer, (int)(10), (int)(10));
 	}
 	
 	@Override
@@ -1333,54 +885,21 @@ public class AflamActivity extends AppCompatActivity {
 			_drawer.closeDrawer(GravityCompat.START);
 		}
 		else {
-			if (eng.equals("ENG")) {
-				i.setClass(getApplicationContext(), CategoryActivity.class);
-				startActivity(i);
-				overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-			}
-			else {
-				if (eng.equals("H")) {
-					PageLimit = 1;
-					gred.setVisibility(View.GONE);
-					vscroll1.setVisibility(View.VISIBLE);
-					vscroll2.setVisibility(View.GONE);
-					vscroll3.setVisibility(View.GONE);
-					imgbbbb.clear();
-					mapNames.clear();
-					linkkk.clear();
-					we.clear();
-					eng = "ENG";
-				}
-				else {
-					if (eng.equals("M")) {
-						gred.setVisibility(View.GONE);
-						vscroll1.setVisibility(View.GONE);
-						vscroll2.setVisibility(View.VISIBLE);
-						vscroll3.setVisibility(View.GONE);
-						imgbbbb.clear();
-						mapNames.clear();
-						linkkk.clear();
-						we.clear();
-						eng = "H";
-					}
-					else {
-						if (eng.equals("S")) {
-							gred.setVisibility(View.GONE);
-							vscroll1.setVisibility(View.GONE);
-							vscroll2.setVisibility(View.GONE);
-							vscroll3.setVisibility(View.VISIBLE);
-							imgbbbb.clear();
-							mapNames.clear();
-							linkkk.clear();
-							we.clear();
-							eng = "H";
-						}
-					}
-				}
-			}
+			i.setClass(getApplicationContext(), CategoryActivity.class);
+			startActivity(i);
+			overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 		}
 	}
 	
+	public void _Effect_Views(final View _v, final ObjectAnimator _o) {
+		_o.setTarget(_v);
+		_o.setPropertyName("translationX");
+		_o.setFloatValues((float)(50), (float)(0));
+		_o.setDuration((int)(300));
+		_o.start();
+	}
+	
+	
 	public void _changeActivityFont(final String _fontname) {
 		fontName = "fonts/".concat(_fontname.concat(".ttf"));
 		overrideFonts(this,getWindow().getDecorView()); 
@@ -1524,8 +1043,8 @@ public class AflamActivity extends AppCompatActivity {
 		_changeActivityFont("neosansarabic");
 		_NavStatusBarColor("#000000", "#FFFFFF");
 		_toolbar.setVisibility(View.GONE);
-		imageview4.getDrawable(). setColorFilter(Color.parseColor("#fafafa"), PorterDuff.Mode.SRC_IN);
-		_RippleEffects("#e0e0e0", imageview4);
+		imageview2.getDrawable(). setColorFilter(Color.parseColor("#fafafa"), PorterDuff.Mode.SRC_IN);
+		_RippleEffects("#e0e0e0", imageview2);
 	}
 	
 	
@@ -1534,52 +1053,112 @@ public class AflamActivity extends AppCompatActivity {
 	}
 	
 	
+	public void _bt2() {
+		i.setAction(Intent.ACTION_VIEW);
+		i.setData(Uri.parse(url));
+		startActivity(i);
+		finishAffinity();
+	}
+	
+	
+	public void _txt2() {
+		
+	}
+	
+	
+	public void _txt3() {
+		
+	}
+	
+	
 	public void _bt5() {
 		
 	}
 	
 	
-	public void _clickAnimation(final View _view) {
-		ScaleAnimation fade_in = new ScaleAnimation(0.9f, 1f, 0.9f, 1f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.7f);
-		fade_in.setDuration(300);
-		fade_in.setFillAfter(true);
-		_view.startAnimation(fade_in);
+	public void _btn1() {
+		
+	}
+	
+	
+	public void _btn2() {
+		i.setAction(Intent.ACTION_VIEW);
+		i.setData(Uri.parse("https://dl.dropbox.com/scl/fi/z7v03jqiy4hgrec3wrn9n/MTX-Player.apk?dl=0&rlkey=njdc645wnjbl8wvgupce7uae2"));
+		startActivity(i);
 	}
 	
 	
 	public void _GetSource(final String _Source, final double _type, final String _StartingKey, final String _EndingKey) {
-		NewSource = _Source;
 		pos2 = _Source.indexOf(_StartingKey);
 		pos1 = pos2 + _StartingKey.length();
 		pos = pos1;
-		for(int _repeat10 = 0; _repeat10 < (int)(_Source.length()); _repeat10++) {
+		for(int _repeat21 = 0; _repeat21 < (int)(_Source.length()); _repeat21++) {
 			if (_Source.substring((int)(pos1), (int)(pos + 1)).contains(_EndingKey)) {
-				if (_type == 1) {
-					
+				if (_type == 3) {
+					textview5.setText(_Source.substring((int)(pos1), (int)(pos)).replace("/12/", " ديسمبر ").replace("/11/", " نوفمبر ").replace("/10/", " اكتوبر ").replace("/09/", " سبتمبر ").replace("/08/", " اغسطس ").replace("/07/", " يوليو ").replace("/06/", " يونيو ").replace("/05/", " مايو ").replace("/04/", "ابريل").replace("/03/", " مارس ").replace("/02/", " فبراير ").replace("/01/", " يناير "));
 				}
 				else {
-					st = "<div class=\"Thumb--GridItem\"><a href=\"".concat(_Source.substring((int)(pos1), (int)(pos)).concat(">").replace(" مترجم", "").replace("مشاهدة فيلم ", "")).replace("BG--GridItem\" data-lazy-style=\"--image:url(", "").replace(");", "");
-					html = st;
-					Document doc = Jsoup.parse(html);
-					name = doc.getElementsByTag("a").attr("title");
-					img = doc.getElementsByTag("span").attr("class");
-					alt = doc.getElementsByTag("a").attr("href");
-					{
-						HashMap<String, Object> _item = new HashMap<>();
-						_item.put("name", img);
-						mapNames.add(_item);
+					if (_type == 2) {
+						html1 = _Source.substring((int)(pos1), (int)(pos));
+						Document docc = Jsoup.parse(html1);
+						listImg2.add(docc.getElementsByTag("img").attr("src"));
+						listName2.add(docc.getElementsByTag("span").first().text());
+						listTV.add(docc.getElementsByTag("span").get(2).text());
+						listMIC.add(docc.getElementsByTag("span").get(3).text());
+						listCUP.add(docc.getElementsByTag("span").get(4).text());
 					}
-					
-					imgbbbb.add(name);
-					linkkk.add(alt);
+					else {
+						if (_type == 1) {
+							if (_Source.substring((int)(pos1), (int)(pos)).contains("<ul>")) {
+								html = _Source.substring((int)(pos1), (int)(pos));
+								Document doc = Jsoup.parse(html);
+								listImg1.add(doc.getElementsByTag("img").attr("src"));
+								listName1.add(doc.getElementsByTag("span").first().text());
+								listDate.add(doc.getElementsByTag("span").get(2).text());
+								listhala.add(doc.getElementsByTag("ul").first().text());
+							}
+							else {
+								html = _Source.substring((int)(pos1), (int)(pos));
+								Document doc = Jsoup.parse(html);
+								listImg1.add(doc.getElementsByTag("img").attr("src"));
+								listName1.add(doc.getElementsByTag("span").first().text());
+								listDate.add(doc.getElementsByTag("span").get(2).text());
+								listhala.add(":");
+							}
+						}
+						else {
+							{
+								HashMap<String, Object> _item = new HashMap<>();
+								_item.put("url", _Source.substring((int)(pos1), (int)(pos)));
+								listUrl.add(_item);
+							}
+							
+						}
+					}
 				}
-				NewSource = NewSource.substring((int)(0), (int)(pos)).replace(NewSource.substring((int)(pos2), (int)(pos)), "").concat(NewSource.substring((int)(pos), (int)(NewSource.length())));
+				NewSource = _Source.replace(_Source.substring((int)(pos2), (int)(pos)), "");
 				if (NewSource.contains(_StartingKey)) {
 					_GetSource(NewSource, _type, _StartingKey, _EndingKey);
 				}
 				else {
 					if (_type == 0) {
-						gridview1.setAdapter(new Gridview1Adapter(mapNames));
+						linear60.setVisibility(View.VISIBLE);
+						listview1.setAdapter(new Listview1Adapter(listUrl));
+						((BaseAdapter)listview1.getAdapter()).notifyDataSetChanged();
+						entimer = new TimerTask() {
+							@Override
+							public void run() {
+								runOnUiThread(new Runnable() {
+									@Override
+									public void run() {
+										if (livet.size() > 0) {
+											_telegramLoaderDialog(false);
+										}
+									}
+								});
+							}
+						};
+						_timer.scheduleAtFixedRate(entimer, (int)(10), (int)(10));
 					}
 				}
 				break;
@@ -1589,40 +1168,23 @@ public class AflamActivity extends AppCompatActivity {
 	}
 	
 	
-	public void _DialogShow(final boolean _statu) {
-		imgbbbb.clear();
-		mapNames.clear();
-		linkkk.clear();
-		req.startRequestNetwork(RequestNetworkController.GET, string.concat("/page/").concat(String.valueOf((long)(PageLimit)).concat("/")), "", _req_request_listener);
-		final AlertDialog dialog1 = new AlertDialog.Builder(AflamActivity.this).create();
-		View inflate = getLayoutInflater().inflate(R.layout.load,null); 
-		dialog1.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-		dialog1.setView(inflate);
-		
-		ww = new TimerTask() {
-			@Override
-			public void run() {
-				runOnUiThread(new Runnable() {
-					@Override
-					public void run() {
-						if (!statusLoad) {
-							ww.cancel();
-							dialog1.dismiss();
-						}
-					}
-				});
-			}
-		};
-		_timer.scheduleAtFixedRate(ww, (int)(10), (int)(5));
-		dialog1.setCancelable(false);
-		dialog1.show();
-		textview1.setText(String.valueOf((long)(PageLimit)));
+	public void _Extra() {
 	}
-	
-	
-	public void _img_radius(final ImageView _view) {
-		Bitmap bm = ((android.graphics.drawable.BitmapDrawable) _view.getDrawable()).getBitmap(); _view.setImageBitmap(getRoundedCornerBitmap(bm, 25));
-	} public static Bitmap getRoundedCornerBitmap(Bitmap bitmap, int pixels) { Bitmap output = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888); Canvas canvas = new Canvas(output); final int color = 0xff424242; final Paint paint = new Paint(); final Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight()); final RectF rectF = new RectF(rect); final float roundPx = pixels; paint.setAntiAlias(true); canvas.drawARGB(0, 0, 0, 0); paint.setColor(color); canvas.drawRoundRect(rectF, roundPx, roundPx, paint); paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN)); canvas.drawBitmap(bitmap, rect, rect, paint); return output;
+	public static class DatePickerFragment extends androidx.appcompat.app.AppCompatDialogFragment implements DatePickerDialog.OnDateSetListener {
+		@Override
+		public Dialog onCreateDialog(Bundle savedInstanceState) {
+			final Calendar c = Calendar.getInstance();
+			int year = c.get(Calendar.YEAR);
+			int month = c.get(Calendar.MONTH);
+			int day = c.get(Calendar.DAY_OF_MONTH);
+			return new DatePickerDialog(getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_DARK , this, year, month, day);
+		}
+		public void onDateSet(DatePicker view, int year, int month, int day) {
+			int mon = month +1;
+			String date = "?d=" + day + "&m=" + mon + "&y=" + year;
+			EditText edittext_date = (EditText) getActivity().findViewById(R.id.edittext_date);
+			edittext_date.setText(date);
+		}
 	}
 	
 	
@@ -1656,65 +1218,12 @@ public class AflamActivity extends AppCompatActivity {
 			_timer.schedule(entimer, (int)(0));
 		}
 		if (settings.getString("theme", "").equals("Light")) {
-			linear18.setBackgroundColor(0xFFE0E0E0);
-			linear27.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFFF48FB1));
-			linear28.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFFCE93D8));
-			linear29.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFFB39DDB));
-			linear30.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFF9FA8DA));
-			linear42.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFFF48FB1));
-			linear43.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFFF48FB1));
-			linear44.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFFF48FB1));
-			linear45.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFFF48FB1));
-			linear46.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFFF48FB1));
-			linear47.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFFF48FB1));
-			linear51.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFFCE93D8));
-			linear52.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFFCE93D8));
-			linear53.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFFCE93D8));
-			linear54.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFFCE93D8));
-			linear55.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFFCE93D8));
-			linear56.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFFCE93D8));
-			button1.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFF80CBC4));
-			button2.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFF80DEEA));
+			textview1.setTextColor(0xFF000000);
+			linear2.setBackgroundColor(0xFFE0E0E0);
 		}
 		else {
-			linear18.setBackgroundColor(0xFF303030);
-			text1.setTextColor(0xFFFFFFFF);
-			text2.setTextColor(0xFFFFFFFF);
-			text3.setTextColor(0xFFFFFFFF);
-			text4.setTextColor(0xFFFFFFFF);
-			text_1.setTextColor(0xFFFFFFFF);
-			text_2.setTextColor(0xFFFFFFFF);
-			text_3.setTextColor(0xFFFFFFFF);
-			text_4.setTextColor(0xFFFFFFFF);
-			text_5.setTextColor(0xFFFFFFFF);
-			text_6.setTextColor(0xFFFFFFFF);
-			text_01.setTextColor(0xFFFFFFFF);
-			text_02.setTextColor(0xFFFFFFFF);
-			text_03.setTextColor(0xFFFFFFFF);
-			text_04.setTextColor(0xFFFFFFFF);
-			text_05.setTextColor(0xFFFFFFFF);
-			text_06.setTextColor(0xFFFFFFFF);
 			textview1.setTextColor(0xFFFFFFFF);
-			button1.setTextColor(0xFFFFFFFF);
-			button2.setTextColor(0xFFFFFFFF);
-			linear27.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFF000000));
-			linear28.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFF000000));
-			linear29.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFF000000));
-			linear30.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFF000000));
-			linear42.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFF000000));
-			linear43.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFF000000));
-			linear44.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFF000000));
-			linear45.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFF000000));
-			linear46.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFF000000));
-			linear47.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFF000000));
-			linear51.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFF000000));
-			linear52.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFF000000));
-			linear53.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFF000000));
-			linear54.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFF000000));
-			linear55.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFF000000));
-			linear56.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFF000000));
-			button1.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFF000000));
-			button2.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFF000000));
+			linear2.setBackgroundColor(0xFF303030);
 		}
 		if (settings.getString("language", "").equals("AR")) {
 			textview2.setText("قنوات");
@@ -1722,6 +1231,7 @@ public class AflamActivity extends AppCompatActivity {
 			textview4.setText("مباريات");
 		}
 		else {
+			textview1.setText("No Matches For This Day");
 			textview2.setText("Channels");
 			textview3.setText("Library");
 			textview4.setText("Match");
@@ -1733,49 +1243,7 @@ public class AflamActivity extends AppCompatActivity {
 			_drawer_textview6.setText("Championship");
 			_drawer_textview9.setText("News");
 			_drawer_textview7.setText("Exit");
-			text1.setText("Movies");
-			text2.setText("Series");
-			text3.setText("Shows");
-			text4.setText("WWE");
-			text_1.setText("Movies Arabic");
-			text_2.setText("Movies English");
-			text_3.setText("Movies India");
-			text_4.setText("Movies Turkey");
-			text_5.setText("Movies Documentaries");
-			text_6.setText("Movies Anime");
-			text_01.setText("Series Arabic");
-			text_02.setText("Series English");
-			text_03.setText("Series India");
-			text_04.setText("Series Turkey");
-			text_05.setText("Series Documentaries");
-			text_06.setText("Series Anime");
-			button1.setText("Previous");
-			button2.setText("Next");
-			textview9.setText("Sorry, an error occurred, please try again");
 		}
-	}
-	
-	
-	public void _vpn() {
-	}
-	public boolean vpn() {
-		    String iface = "";
-		    try {
-			        for (java.net.NetworkInterface networkInterface : Collections.list(java.net.NetworkInterface.getNetworkInterfaces())) {
-				            if (networkInterface.isUp())
-				                iface = networkInterface.getName();
-				                Log.d("DEBUG", "IFACE NAME: " + iface);
-				            if ( iface.contains("tun") || iface.contains("ppp") || iface.contains("pptp")) {
-					                return true;
-					            }
-				        }
-			    } catch (Exception e1) {
-			        e1.printStackTrace();
-			    }
-		
-		    return false;
-	}
-	{
 	}
 	
 	
@@ -1814,6 +1282,138 @@ public class AflamActivity extends AppCompatActivity {
 	}
 	private ProgressDialog loading;
 	{
+	}
+	
+	
+	public void _gggg() {
+		final AlertDialog dialog = new 
+		
+		//غير الأسماء
+		 AlertDialog.Builder(LiveActivity.this).create();
+		LayoutInflater inflater = getLayoutInflater();
+		
+		View convertView = (View) inflater.inflate(R.layout.coss, null);
+		dialog.setView(convertView);
+		
+		//تعريف العناصر
+		
+		TextView txt1 = (TextView)convertView.findViewById(R.id.textview1);
+		
+		TextView txt2 = (TextView)convertView.findViewById(R.id.textview2);
+		
+		TextView txt3 = (TextView)convertView.findViewById(R.id.textview3);
+		
+		TextView txt4 = (TextView)convertView.findViewById(R.id.textview4);
+		
+		TextView txt5 = (TextView)convertView.findViewById(R.id.textview5);
+		
+		Button bt = (Button)convertView.findViewById(R.id.button1);
+		
+		TextView txt0 = (TextView)convertView.findViewById(R.id.textview0);
+		
+		TextView txt00 = (TextView)convertView.findViewById(R.id.textview00);
+		
+		TextView txt000 = (TextView)convertView.findViewById(R.id.textview000);
+		
+		TextView txt0000 = (TextView)convertView.findViewById(R.id.textview0000);
+		
+		TextView txt00000 = (TextView)convertView.findViewById(R.id.textview00000);
+		
+		ImageView imageview1= (ImageView)convertView.findViewById(R.id.imageview1);
+		
+		ImageView imageview2= (ImageView)convertView.findViewById(R.id.imageview2);
+		
+		ImageView imageview3= (ImageView)convertView.findViewById(R.id.imageview3);
+		
+		ImageView imageview4= (ImageView)convertView.findViewById(R.id.imageview4);
+		
+		ImageView imageview5= (ImageView)convertView.findViewById(R.id.imageview5);
+		
+		final LinearLayout linear  = (LinearLayout)convertView.findViewById(R.id.linear1);
+		
+		final LinearLayout linear2  = (LinearLayout)convertView.findViewById(R.id.linear2);
+		
+		final LinearLayout linear3  = (LinearLayout)convertView.findViewById(R.id.linear3);
+		
+		final LinearLayout linear4  = (LinearLayout)convertView.findViewById(R.id.linear4);
+		
+		final LinearLayout linear5  = (LinearLayout)convertView.findViewById(R.id.linear5);
+		
+		final LinearLayout linear6  = (LinearLayout)convertView.findViewById(R.id.linear6);
+		
+		android.graphics.drawable.GradientDrawable wd = new android.graphics.drawable.GradientDrawable();
+		wd.setColor(Color.parseColor("#e0e0e0"));
+		wd.setCornerRadius((int)20f);
+		linear.setBackground(wd);
+		linear.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)20, 0xFFE0E0E0));
+		linear1.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)5, 0xFFBDBDBD));
+		linear2.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)5, 0xFFBDBDBD));
+		linear3.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)5, 0xFFBDBDBD));
+		linear5.setVisibility(View.GONE);
+		linear4.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)5, 0xFFBDBDBD));
+		linear5.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)5, 0xFFBDBDBD));
+		bt.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)5, 0xFF78022C));
+		txt1.setText(cup);
+		txt2.setText(tv);
+		txt3.setText(mic);
+		txt5.setText(time);
+		if (watch.contains("no")) {
+			bt.setVisibility(View.GONE);
+		}
+		else {
+			if (time.contains("انتهت")) {
+				if (watch_finsh.equals("no")) {
+					bt.setVisibility(View.GONE);
+				}
+				else {
+					bt.setVisibility(View.VISIBLE);
+					bt.setText("مشاهدة الملخص");
+					bt.setOnClickListener(new View.OnClickListener() {
+						@Override
+						public void onClick(View _view) {
+							i.setClass(getApplicationContext(), PlayerwebActivity.class);
+							i.putExtra("url", watch_finsh.replace("https://", "********").replace("http://", "*******").replace(".php", "*****").replace(".", "*"));
+							startActivity(i);
+						}
+					});
+				}
+			}
+			else {
+				if (watch_live.equals("no")) {
+					bt.setVisibility(View.GONE);
+				}
+				else {
+					bt.setVisibility(View.VISIBLE);
+					bt.setText("مشاهدة المباراة");
+					bt.setOnClickListener(new View.OnClickListener() {
+						@Override
+						public void onClick(View _view) {
+							i.setClass(getApplicationContext(), MainActivity.class);
+							i.putExtra("txt", txt);
+							i.putExtra("url", watch_live.replace("https://", "********").replace("http://", "*******").replace(".m3u8", "*****").replace(".", "*"));
+							i.putExtra("user_agent", user.replace("https://", "********").replace("http://", "*******").replace(".m3u8", "*****").replace(".", "*"));
+							i.putExtra("referer", refer.replace("https://", "********").replace("http://", "*******").replace(".m3u8", "*****").replace(".", "*"));
+							i.putExtra("type", "channel");
+							startActivity(i);
+						}
+					});
+				}
+			}
+		}
+		dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+		dialog.show();
+		t = new TimerTask() {
+			@Override
+			public void run() {
+				runOnUiThread(new Runnable() {
+					@Override
+					public void run() {
+						_telegramLoaderDialog(false);
+					}
+				});
+			}
+		};
+		_timer.schedule(t, (int)(1300));
 	}
 	
 	
@@ -1955,11 +1555,11 @@ public class AflamActivity extends AppCompatActivity {
 		finishAffinity();
 	}
 	
-	public class Gridview1Adapter extends BaseAdapter {
+	public class Listview1Adapter extends BaseAdapter {
 		
 		ArrayList<HashMap<String, Object>> _data;
 		
-		public Gridview1Adapter(ArrayList<HashMap<String, Object>> _arr) {
+		public Listview1Adapter(ArrayList<HashMap<String, Object>> _arr) {
 			_data = _arr;
 		}
 		
@@ -1983,39 +1583,131 @@ public class AflamActivity extends AppCompatActivity {
 			LayoutInflater _inflater = getLayoutInflater();
 			View _view = _v;
 			if (_view == null) {
-				_view = _inflater.inflate(R.layout.aflamm, null);
+				_view = _inflater.inflate(R.layout.livee, null);
 			}
 			
 			final LinearLayout linear1 = _view.findViewById(R.id.linear1);
-			final ImageView avatar = _view.findViewById(R.id.avatar);
+			final LinearLayout linear6 = _view.findViewById(R.id.linear6);
+			final LinearLayout linear7 = _view.findViewById(R.id.linear7);
+			final LinearLayout linear18 = _view.findViewById(R.id.linear18);
+			final TextView textview8 = _view.findViewById(R.id.textview8);
+			final LinearLayout linear21 = _view.findViewById(R.id.linear21);
+			final LinearLayout linear19 = _view.findViewById(R.id.linear19);
+			final ImageView imageview1 = _view.findViewById(R.id.imageview1);
 			final TextView textview1 = _view.findViewById(R.id.textview1);
+			final TextView textview2 = _view.findViewById(R.id.textview2);
+			final LinearLayout linear22 = _view.findViewById(R.id.linear22);
+			final TextView textview7 = _view.findViewById(R.id.textview7);
+			final LinearLayout linear23 = _view.findViewById(R.id.linear23);
+			final TextView textview3 = _view.findViewById(R.id.textview3);
+			final ImageView imageview2 = _view.findViewById(R.id.imageview2);
 			
-			linear1.setElevation((float)10);
-			android.graphics.drawable.GradientDrawable gd = new android.graphics.drawable.GradientDrawable();
-			gd.setColor(Color.parseColor("#ffffff"));
-			gd.setStroke(5, Color.parseColor("#ffffff"));
-			gd.setCornerRadius(10);
-			linear1.setBackground(gd);
 			textview1.setEllipsize(TextUtils.TruncateAt.MARQUEE);
 			textview1.setMarqueeRepeatLimit(-1);
 			textview1.setSingleLine(true);
 			textview1.setSelected(true);
-			Glide.with(getApplicationContext()).load(Uri.parse(mapNames.get((int)_position).get("name").toString())).into(avatar);
-			textview1.setText(imgbbbb.get((int)(_position)));
-			if (settings.getString("theme", "").equals("Light")) {
-				textview1.setTextColor(0xFF000000);
-				linear1.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFFFFFFFF));
+			textview2.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+			textview2.setMarqueeRepeatLimit(-1);
+			textview2.setSingleLine(true);
+			textview2.setSelected(true);
+			textview3.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+			textview3.setMarqueeRepeatLimit(-1);
+			textview3.setSingleLine(true);
+			textview3.setSelected(true);
+			textview7.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+			textview7.setMarqueeRepeatLimit(-1);
+			textview7.setSingleLine(true);
+			textview7.setSelected(true);
+			textview8.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+			textview8.setMarqueeRepeatLimit(-1);
+			textview8.setSingleLine(true);
+			textview8.setSelected(true);
+			textview2.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFFEEEEEE));
+			Glide.with(getApplicationContext()).load(Uri.parse(listImg1.get((int)(_position)))).into(imageview1);
+			textview1.setText(listName1.get((int)(_position)));
+			Glide.with(getApplicationContext()).load(Uri.parse(listImg2.get((int)(_position)))).into(imageview2);
+			textview3.setText(listName2.get((int)(_position)));
+			textview2.setText(listDate.get((int)(_position)).replace("ص", ""));
+			textview8.setText(listCUP.get((int)(_position)));
+			if (listhala.get((int)(_position)).contains(":")) {
+				linear23.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)90, 0xFFE0E0E0));
+				textview7.setText("لم تبدا");
+				textview7.setTextColor(0xFFE0E0E0);
 			}
 			else {
-				textview1.setTextColor(0xFFFFFFFF);
-				linear1.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)10, 0xFF000000));
+				if (listhala.get((int)(_position)).contains("قريباً")) {
+					linear23.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)90, 0xFFFF9800));
+					textview7.setText("بعد قليل");
+					textview7.setTextColor(0xFFFF9800);
+				}
+				else {
+					if (listhala.get((int)(_position)).contains("الآن")) {
+						linear23.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)90, 0xFFF44336));
+						textview7.setText("مباشر");
+						textview7.setTextColor(0xFFF44336);
+					}
+					else {
+						linear23.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)90, 0xFF9E9E9E));
+						textview7.setText("انتهت");
+						textview7.setTextColor(0xFF9E9E9E);
+					}
+				}
 			}
 			linear1.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View _view) {
 					_telegramLoaderDialog(true);
-					nam = imgbbbb.get((int)(_position));
-					req1.startRequestNetwork(RequestNetworkController.GET, linkkk.get((int)(_position)), "", _req1_request_listener);
+					if (!textview7.getText().toString().equals("لم تبدا")) {
+						tv = listTV.get((int)(_position));
+						mic = listMIC.get((int)(_position));
+						cup = listCUP.get((int)(_position));
+						time = listDate.get((int)(_position)).replace("ص", "").concat("  & ".concat(textview7.getText().toString()));
+						if (listUrl.get((int)_position).get("url").toString().length() > 0) {
+							number = livet.size() - 1;
+							length = livet.size();
+							for(int _repeat227 = 0; _repeat227 < (int)(length); _repeat227++) {
+								if (livet.get((int)number).get("key").toString().equals(listUrl.get((int)_position).get("url").toString())) {
+									if (livet.get((int)number).get("live").toString().equals("")) {
+										watch_live = "no";
+										if (livet.get((int)number).get("finsh").toString().equals("")) {
+											watch_finsh = "no";
+											watch = "yes";
+											_gggg();
+										}
+										else {
+											watch_finsh = livet.get((int)number).get("finsh").toString();
+											watch = "yes";
+											_gggg();
+										}
+									}
+									else {
+										watch_live = livet.get((int)number).get("live").toString();
+										txt = listName1.get((int)(_position)).concat(" ضد ".concat(listName2.get((int)(_position))));
+										user = livet.get((int)number).get("user").toString();
+										refer = livet.get((int)number).get("referer").toString();
+										watch = "yes";
+										_gggg();
+									}
+								}
+								else {
+									if (number == 0) {
+										watch = "no";
+										_gggg();
+									}
+								}
+								number--;
+							}
+						}
+						Collections.reverse(livet);
+					}
+					else {
+						watch = "no";
+						tv = listTV.get((int)(_position));
+						mic = listMIC.get((int)(_position));
+						cup = listCUP.get((int)(_position));
+						time = listDate.get((int)(_position)).replace("ص", "").concat(" & ".concat(textview7.getText().toString()));
+						_gggg();
+					}
 				}
 			});
 			

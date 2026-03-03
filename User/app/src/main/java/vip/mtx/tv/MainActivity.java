@@ -1,10 +1,12 @@
 package vip.mtx.tv;
 
-import vip.mtx.tv.AflamActivity;
+import vip.mtx.tv.EngActivity;
 import android.animation.*;
 import android.app.*;
+import android.app.Activity;
 import android.content.*;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.*;
 import android.graphics.*;
 import android.graphics.Typeface;
@@ -101,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
 	private RequestNetwork req;
 	private RequestNetwork.RequestListener _req_request_listener;
 	private TimerTask t;
+	private SharedPreferences shared;
 	
 	@Override
 	protected void onCreate(Bundle _savedInstanceState) {
@@ -115,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
 		player_view = findViewById(R.id.player_view);
 		listview1 = findViewById(R.id.listview1);
 		req = new RequestNetwork(this);
+		shared = getSharedPreferences("shared", Activity.MODE_PRIVATE);
 		
 		_req_request_listener = new RequestNetwork.RequestListener() {
 			@Override
@@ -174,6 +178,52 @@ public class MainActivity extends AppCompatActivity {
 	}
 	
 	private void initializeLogic() {
+		if (shared.getString("key", "").equals("") || !shared.getString("key", "").contains("MTX-")) {
+			final AlertDialog dialog = new 
+			
+			//غير الأسماء
+			 AlertDialog.Builder(MainActivity.this).create();
+			LayoutInflater inflater = getLayoutInflater();
+			
+			View convertView = (View) inflater.inflate(R.layout.unsafe, null);
+			dialog.setView(convertView);
+			
+			//تعريف العناصر
+			
+			TextView txt1 = (TextView)convertView.findViewById(R.id.textview1);
+			
+			Button btn1 = (Button)convertView.findViewById(R.id.button1);
+			
+			ImageView imageview1= (ImageView)convertView.findViewById(R.id.imageview1);
+			
+			final LinearLayout linear  = (LinearLayout)convertView.findViewById(R.id.linear1);
+			
+			txt1.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/neosansarabic.ttf"), 0);
+			
+			btn1.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/neosansarabic.ttf"), 0);
+			
+			//الضغط على الأيقونات
+			
+			btn1.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) { 
+					dialog.dismiss();
+					_bt11();
+				}});
+			//الحواف دائرية
+			android.graphics.drawable.GradientDrawable wd = new android.graphics.drawable.GradientDrawable();
+			wd.setColor(Color.parseColor("#e0e0e0"));
+			wd.setCornerRadius((int)20f);
+			linear.setBackground(wd);
+			
+			android.graphics.drawable.GradientDrawable d = new android.graphics.drawable.GradientDrawable();
+			d.setColor(Color.parseColor("#78022C"));
+			d.setCornerRadius((int)20f);
+			btn1.setBackground(d);
+			
+			dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+			dialog.show();dialog.setCancelable(false);
+			shared.edit().putString("key", "block").commit();
+		}
 		getWindow().getDecorView().setSystemUiVisibility( View.SYSTEM_UI_FLAG_HIDE_NAVIGATION| View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 		SystemClock.sleep(400);
 		loading = true;

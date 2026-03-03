@@ -1,0 +1,96 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+	<LinearLayout
+		android:id="@+id/background"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+		<LinearLayout
+			android:id="@+id/topBG"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="#FFFFFF"
+			android:orientation="horizontal"
+			android:layout_weight="1">
+			<LinearLayout
+				android:id="@+id/top"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:padding="8dp"
+				android:background="#78022C"
+				android:gravity="center_horizontal|center_vertical"
+				android:orientation="vertical">
+				<ImageView
+					android:id="@+id/logo"
+					android:layout_width="200dp"
+					android:layout_height="200dp"
+					android:src="@drawable/logoapp"
+					android:scaleType="fitCenter" />
+			</LinearLayout>
+		</LinearLayout>
+		<LinearLayout
+			android:id="@+id/bottomBG"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="#78022C"
+			android:orientation="horizontal"
+			android:layout_weight="1">
+			<LinearLayout
+				android:id="@+id/bottom"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:padding="10dp"
+				android:background="#FFFFFF"
+				android:gravity="center_horizontal|center_vertical"
+				android:orientation="vertical">
+				<TextView
+					android:id="@+id/title"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="32dp"
+					android:paddingLeft="8dp"
+					android:paddingTop="8dp"
+					android:paddingRight="8dp"
+					android:gravity="center_horizontal|center_vertical"
+					android:text="مرحبًا بك في تطبيق MTX TV"
+					android:textSize="25sp"
+					android:textColor="#000000" />
+				<LinearLayout
+					android:id="@+id/buttonBG"
+					android:layout_width="175dp"
+					android:layout_height="60dp"
+					android:background="#78022C"
+					android:gravity="center_horizontal|center_vertical"
+					android:orientation="horizontal">
+					<TextView
+						android:id="@+id/buttonText"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:paddingRight="8dp"
+						android:text="ابدا الان"
+						android:textSize="16sp"
+						android:textColor="#FFFFFF" />
+				</LinearLayout>
+				<LinearLayout
+					android:id="@+id/linear1"
+					android:layout_width="wrap_content"
+					android:layout_height="40dp"
+					android:padding="8dp"
+					android:orientation="vertical" />
+				<TextView
+					android:id="@+id/textview1"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:padding="8dp"
+					android:text="Join Telegram"
+					android:textSize="12sp"
+					android:textColor="#000000" />
+			</LinearLayout>
+		</LinearLayout>
+	</LinearLayout>
+</LinearLayout>
